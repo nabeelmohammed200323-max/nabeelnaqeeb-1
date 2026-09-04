@@ -1,528 +1,2663 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nabeel Naqeeb Remit | Tanzania → Turkey Remittances</title>
+  <title>Nabeel Naqeeb Remit | Express Money Transfer Tanzania to Turkey (4% Customs Clearance & 100% Upfront Fees)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eefcf6',
+              100: '#d7f7e9',
+              200: '#b2edd4',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+              navy: '#0f172a',
+              gold: '#f59e0b',
+            }
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    :root {
-      --bg: #0d1117;
-      --card-bg: #161b22;
-      --border: #30363d;
-      --text: #c9d1d9;
-      --heading: #f0f6fc;
-      --accent: #238636;
-      --accent-hover: #2ea043;
-      --primary: #1f6feb;
-      --warn: #d29922;
-      --danger: #f85149;
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glass-nav {
+      background: rgba(15, 23, 42, 0.90);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
-    body.light {
-      --bg: #f6f8fa;
-      --card-bg: #ffffff;
-      --border: #d0d7de;
-      --text: #24292f;
-      --heading: #1f2328;
-      --accent: #1a7f37;
-      --accent-hover: #2da44e;
-      --primary: #0969da;
-      --warn: #9a6700;
-      --danger: #cf222e;
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 
--apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: var(--bg); color: var(--text); line-height: 1.5; 
-padding-bottom: 60px; }
-    a { color: var(--primary); text-decoration: none; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    header { background: var(--card-bg); border-bottom: 1px solid 
-var(--border); position: sticky; top: 0; z-index: 100; }
-    .nav { display: flex; align-items: center; justify-content: 
-space-between; height: 64px; }
-    .brand { font-weight: 700; font-size: 1.1rem; color: var(--heading); 
-display: flex; align-items: center; gap: 8px; }
-    .nav-links { display: flex; gap: 16px; align-items: center; font-size: 
-0.9rem; }
-    .btn { background: var(--accent); color: #fff; border: none; padding: 
-8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; }
-    .btn:hover { background: var(--accent-hover); }
-    .btn-secondary { background: transparent; border: 1px solid 
-var(--border); color: var(--heading); }
-    .hero { padding: 48px 0; text-align: center; }
-    .hero h1 { font-size: 2.2rem; color: var(--heading); margin-bottom: 
-12px; }
-    .badge-grid { display: flex; flex-wrap: wrap; justify-content: center; 
-gap: 12px; margin-top: 20px; }
-    .badge { background: var(--card-bg); border: 1px solid var(--border); 
-padding: 8px 14px; border-radius: 20px; font-size: 0.85rem; }
-    .grid-2 { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 
-24px; margin-top: 32px; }
-    @media(max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
-    .card { background: var(--card-bg); border: 1px solid var(--border); 
-border-radius: 8px; padding: 24px; margin-bottom: 24px; }
-    .form-group { margin-bottom: 16px; }
-    label { display: block; font-size: 0.85rem; font-weight: 600; 
-margin-bottom: 6px; color: var(--heading); }
-    input, select { width: 100%; padding: 10px; border-radius: 6px; 
-border: 1px solid var(--border); background: var(--bg); color: 
-var(--heading); }
-    .breakdown-row { display: flex; justify-content: space-between; 
-padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; 
-}
-    .total-row { font-weight: 700; color: var(--heading); font-size: 
-1.05rem; border-top: 2px solid var(--border); }
-    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
-    th, td { padding: 12px; border: 1px solid var(--border); text-align: 
-left; font-size: 0.85rem; }
-    th { background: var(--card-bg); color: var(--heading); }
-    .timeline { border-left: 2px solid var(--primary); padding-left: 16px; 
-margin-left: 8px; }
-    .step { margin-bottom: 20px; position: relative; }
-    .step::before { content: ""; position: absolute; left: -22px; top: 
-4px; width: 10px; height: 10px; border-radius: 50%; background: 
-var(--primary); }
-    .step-title { font-weight: 700; color: var(--heading); margin-bottom: 
-4px; }
-    .status-tracker { background: var(--bg); border: 1px solid 
-var(--border); border-radius: 6px; padding: 16px; margin-top: 16px; }
-    .modal { display: none; position: fixed; inset: 0; background: 
-rgba(0,0,0,0.7); align-items: center; justify-content: center; z-index: 
-200; }
-    .modal.active { display: flex; }
-    .modal-content { background: var(--card-bg); border: 1px solid 
-var(--border); border-radius: 8px; padding: 24px; width: 100%; max-width: 
-440px; }
-    footer { border-top: 1px solid var(--border); padding-top: 32px; 
-margin-top: 48px; font-size: 0.85rem; }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.92; transform: scale(1.02); }
+    }
+    .animate-badge {
+      animation: pulse-subtle 2.5s infinite ease-in-out;
+    }
   </style>
-</head>
-<body>
 
-<header>
-  <div class="container nav">
-    <div class="brand">
-      <span 
-style="background:var(--primary);color:#fff;border-radius:4px;padding:2px 
-6px;">NN</span>
-      Nabeel Naqeeb Remit
-    </div>
-    <div class="nav-links">
-      <a href="#calculator">Calculator</a>
-      <a href="#fee-breakdown">Upfront Fees</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#customs-info">4% Customs</a>
-      <a href="#track-section">Track</a>
-      <button class="btn-secondary btn" onclick="toggleTheme()">🌓 
-Theme</button>
-      <button class="btn" onclick="openModal('auth-modal')">Sign 
-In</button>
-    </div>
-  </div>
-</header>
-
-<main class="container">
-  <section class="hero">
-    <span 
-style="color:var(--primary);font-size:0.85rem;font-weight:700;">TANZANIA 
-→ TURKEY DEDICATED CORRIDOR</span>
-    <h1>Instant Remittances to Turkish Bank IBANs</h1>
-    <p>Direct payouts from Vodacom M-Pesa, Tigo, Airtel & Banks to 
-VakıfBank, Ziraat, or Istanbul Desks with 100% upfront fee 
-disclosure[span_1](start_span)[span_1](end_span).</p>
-    
-    <div class="badge-grid">
-      <div class="badge">🛡️ Upfront Price Guarantee</div>
-      <div class="badge">⚖️ 4% Regulatory Customs Clearance</div>
-      <div class="badge">⚡ FAST Network Delivery &lt; 30 mins</div>
-      <div class="badge">🇹🇿 Vodacom, Tigo, Airtel, CRDB, NMB</div>
-    </div>
-  </section>
-
-  <div class="grid-2">
-    <!-- Remittance Calculator Card -->
-    <section id="calculator" class="card">
-      <h2 style="color:var(--heading);margin-bottom:16px;">Transfer 
-Calculator</h2>
-      <div class="form-group">
-        <label for="send-amount">You Send (Principal) 🇹🇿 TZS</label>
-        <input type="number" id="send-amount" value="500000" min="5000" 
-max="15000000" oninput="calculateTransfer()">
-        <small style="font-size:0.75rem;color:var(--text)">Min: 5,000 TZS 
-| Daily limit: 15,000,000 TZS</small>
-      </div>
-
-      <div class="breakdown-row">
-        <span>Locked Interbank Rate (0% spread)</span>
-        <strong>1 TZS = 0.0183125 TRY</strong>
-      </div>
-      <div class="breakdown-row">
-        <span>4% Customs Clearance Charge (TR border tax)</span>
-        <span id="customs-fee" style="color:var(--warn)">+ 20,000 
-TZS</span>
-      </div>
-      <div class="breakdown-row">
-        <span>Platform Service Fee</span>
-        <span style="color:var(--accent)">0 TZS (Free Launch Promo)</span>
-      </div>
-      <div class="breakdown-row">
-        <span>Tanzanian Payment Rail Fee</span>
-        <span>0 TZS (Included)</span>
-      </div>
-      <div class="breakdown-row total-row">
-        <span>Total Debited Upfront</span>
-        <span id="total-debited">520,000 TZS</span>
-      </div>
-
-      <div style="margin-top:16px;" class="card">
-        <div style="font-size:0.85rem;margin-bottom:4px;">Guaranteed 
-Payout in Turkey 🇹🇷</div>
-        <div id="payout-amount" 
-style="font-size:1.6rem;font-weight:700;color:var(--heading);">9,156.25 
-TRY</div>
-        <small style="color:var(--text)">Direct to FAST IBAN (VakıfBank / 
-Ziraat) with 0 TRY receiving fee</small>
-      </div>
-
-      <button class="btn" style="width:100%;padding:12px;font-size:1rem;" 
-onclick="openTransferFlow()">Proceed to Upfront Review &amp; Send 
-→</button>
-    </section>
-
-    <!-- Track Transfer Section -->
-    <section id="track-section" class="card">
-      <h2 style="color:var(--heading);margin-bottom:16px;">Live Status 
-Tracker</h2>
-      <label for="track-input">Reference Code</label>
-      <div style="display:flex;gap:8px;margin-bottom:16px;">
-        <input type="text" id="track-input" value="NQ-TZTR-89421">
-        <button class="btn btn-secondary" 
-onclick="trackOrder()">Track</button>
-      </div>
-
-      <div class="status-tracker">
-        <div 
-style="display:flex;justify-content:space-between;margin-bottom:8px;">
-          <strong>NQ-TZTR-89421</strong>
-          <span style="color:var(--accent);font-weight:700;">COMPLETED • 
-PAID OUT</span>
-        </div>
-        <p style="font-size:0.85rem;margin-bottom:12px;">Recipient: Yusuf 
-Al-Mazroui (VakıfBank Istanbul)[span_2](start_span)[span_2](end_span)</p>
-        
-        <div class="timeline">
-          <div class="step">
-            <div class="step-title">✓ 1. Payment Received</div>
-            <p style="font-size:0.8rem;">Vodacom M-Pesa (TZ) 
-Confirmed[span_3](start_span)[span_3](end_span)</p>
-          </div>
-          <div class="step">
-            <div class="step-title">✓ 2. Customs Cleared</div>
-            <p style="font-size:0.8rem;">4% Tariff Declared (TR) 
-#TR-7729[span_4](start_span)[span_4](end_span)</p>
-          </div>
-          <div class="step">
-            <div class="step-title">✓ 3. FX Conversion</div>
-            <p style="font-size:0.8rem;">Locked Interbank Rate 
-Executed[span_5](start_span)[span_5](end_span)</p>
-          </div>
-          <div class="step">
-            <div class="step-title">✓ 4. IBAN Dispatched</div>
-            <p style="font-size:0.8rem;">FAST transfer delivered into 
-VakıfBank IBAN[span_6](start_span)[span_6](end_span)</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Comparison Table -->
-  <section id="fee-breakdown" class="card">
-    <h2 style="color:var(--heading);margin-bottom:12px;">Corridor Cost 
-&amp; Transparency Comparison</h2>
-    <p style="font-size:0.9rem;">Comparing a 500,000 TZS transfer to a 
-Turkish Bank IBAN (August 2026 
-Rates)[span_7](start_span)[span_7](end_span).</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>Nabeel Naqeeb Remit</th>
-          <th>Traditional Banks (SWIFT)</th>
-          <th>Informal Hawala</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Upfront Fee Breakdown</td>
-          <td>✓ Full Itemized Screen Before 
-Payment[span_8](start_span)[span_8](end_span)</td>
-          <td>✕ Hidden intermediary 
-deductions[span_9](start_span)[span_9](end_span)</td>
-          <td>⚠️ Verbal estimate 
-only[span_10](start_span)[span_10](end_span)</td>
-        </tr>
-        <tr>
-          <td>4% Customs Compliance</td>
-          <td>✓ Transparent 4% official 
-certificate[span_11](start_span)[span_11](end_span)</td>
-          <td>Unclear tariffs &amp; 
-fees[span_12](start_span)[span_12](end_span)</td>
-          <td>✕ Unregistered (Account freeze 
-risk)[span_13](start_span)[span_13](end_span)</td>
-        </tr>
-        <tr>
-          <td>Exchange Rate Spread</td>
-          <td>0% (Interbank FX 
-Locked)[span_14](start_span)[span_14](end_span)</td>
-          <td>3.5% – 6.0% 
-margin[span_15](start_span)[span_15](end_span)</td>
-          <td>5.0% – 8.0% volatile 
-spread[span_16](start_span)[span_16](end_span)</td>
-        </tr>
-        <tr>
-          <td>Delivery Speed</td>
-          <td>15 – 30 Mins (FAST 
-IBAN)[span_17](start_span)[span_17](end_span)</td>
-          <td>3 – 5 Business 
-Days[span_18](start_span)[span_18](end_span)</td>
-          <td>1 – 2 Days 
-(Uncertain)[span_19](start_span)[span_19](end_span)</td>
-        </tr>
-        <tr>
-          <td>Recipient Payout (500k TZS)</td>
-          <td><strong>9,156.25 
-TRY</strong>[span_20](start_span)[span_20](end_span)</td>
-          <td>~8,320 TRY (-836 TRY 
-lost)[span_21](start_span)[span_21](end_span)</td>
-          <td>~8,450 TRY (-706 TRY 
-lost)[span_22](start_span)[span_22](end_span)</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- Customs Info -->
-  <section id="customs-info" class="card">
-    <h2 style="color:var(--heading);margin-bottom:12px;">Understanding the 
-4% Customs Clearance Protocol</h2>
-    <p style="margin-bottom:16px;">When transmitting funds from Tanzania 
-to Turkey, financial and customs protocols mandate an official 4% customs 
-declaration fee[span_23](start_span)[span_23](end_span). This covers 
-cross-border clearing, banking stamp duty, and electronic MASAK 
-verification[span_24](start_span)[span_24](end_span).</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, 
-minmax(240px, 1fr));gap:16px;">
-      <div style="border:1px solid 
-var(--border);padding:16px;border-radius:6px;">
-        <strong>100% Tax Compliant</strong>
-        <p style="font-size:0.85rem;margin-top:6px;">Protects both sender 
-and receiver from tax investigations or account 
-freezes[span_25](start_span)[span_25](end_span).</p>
-      </div>
-      <div style="border:1px solid 
-var(--border);padding:16px;border-radius:6px;">
-        <strong>Pre-Cleared for FAST</strong>
-        <p style="font-size:0.85rem;margin-top:6px;">Guarantees rapid 
-release into VakıfBank, Ziraat Bankası, and all local Turkish 
-banks[span_26](start_span)[span_26](end_span).</p>
-      </div>
-      <div style="border:1px solid 
-var(--border);padding:16px;border-radius:6px;">
-        <strong>Transparently Itemized</strong>
-        <p style="font-size:0.85rem;margin-top:6px;">Shown line-by-line 
-prior to transaction confirmation. Never deducted 
-secretly[span_27](start_span)[span_27](end_span).</p>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- Transfer Multi-Step Modal -->
-<div id="transfer-modal" class="modal">
-  <div class="modal-content" style="max-width:520px;">
-    <h3 style="color:var(--heading);margin-bottom:12px;" 
-id="flow-title">Confirm Transfer</h3>
-    
-    <div id="flow-step-1">
-      <div class="form-group">
-        <label>Recipient Legal Name (As in Kimlik / Passport)</label>
-        <input type="text" id="rec-name" value="Yusuf Al-Mazroui">
-      </div>
-      <div class="form-group">
-        <label>Turkish Destination Bank</label>
-        <select id="rec-bank">
-          <option>Türkiye Vakıflar Bankası (VakıfBank)</option>
-          <option>T.C. Ziraat Bankası</option>
-          <option>Türkiye İş Bankası</option>
-          <option>Garanti BBVA</option>
-          <option>Istanbul Cash Pickup (Pendik Hub)</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Turkish IBAN (FAST Supported)</label>
-        <input type="text" id="rec-iban" value="TR62 0001 5001 0000 1234 
-5678 90">
-      </div>
-      <div class="form-group">
-        <label>Tanzania Funding Source</label>
-        <select>
-          <option>Vodacom M-Pesa (STK Push)</option>
-          <option>Tigo Pesa</option>
-          <option>Airtel Money</option>
-          <option>CRDB / NMB Wire</option>
-        </select>
-      </div>
-      <button class="btn" style="width:100%;margin-top:10px;" 
-onclick="goToFlowStep(2)">Continue to 2FA Authorization →</button>
-    </div>
-
-    <div id="flow-step-2" style="display:none;">
-      <div style="background:var(--bg);border:1px solid 
-var(--border);padding:12px;border-radius:6px;font-size:0.85rem;margin-bottom:16px;">
-        <div>Principal: <strong id="modal-principal">500,000 
-TZS</strong></div>
-        <div>4% Customs Fee: <strong id="modal-customs">+ 20,000 
-TZS</strong></div>
-        <div>Total Debited: <strong id="modal-debited">520,000 
-TZS</strong></div>
-        <div style="color:var(--accent);margin-top:4px;">Guaranteed 
-Payout: <strong id="modal-payout">9,156.25 TRY</strong></div>
-      </div>
-      <div class="form-group">
-        <label>Enter 6-Digit Verification Code (2FA)</label>
-        <input type="text" id="flow-2fa" placeholder="123456" 
-maxlength="6">
-        <small style="font-size:0.75rem;color:var(--text);">Demo Code: <a 
-href="javascript:void(0)" 
-onclick="document.getElementById('flow-2fa').value='123456'">123456</a></small>
-      </div>
-      <div style="display:flex;gap:8px;">
-        <button class="btn btn-secondary" 
-onclick="goToFlowStep(1)">Back</button>
-        <button class="btn" style="flex:1;" 
-onclick="completeTransfer()">Authorize &amp; Dispatch Payment</button>
-      </div>
-    </div>
-
-    <div id="flow-step-3" style="display:none;text-align:center;">
-      <div style="font-size:2rem;margin-bottom:8px;">🎉</div>
-      <h3 style="color:var(--accent);margin-bottom:8px;">Transfer 
-Initiated Successfully</h3>
-      <p style="font-size:0.85rem;margin-bottom:16px;">Reference Code: 
-<strong>NQ-TZTR-92815</strong><br>Certificate No: 
-<strong>TR-CUSTOMS-2026-92815</strong></p>
-      <button class="btn" 
-onclick="closeModal('transfer-modal')">Done</button>
-    </div>
-  </div>
-</div>
-
-<!-- Auth Modal -->
-<div id="auth-modal" class="modal">
-  <div class="modal-content">
-    <h3 style="color:var(--heading);margin-bottom:16px;">Sign In &amp; 
-2FA</h3>
-    <div class="form-group">
-      <label>Email or Mobile Number</label>
-      <input type="text" value="nabeel.naqeeb@example.com">
-    </div>
-    <div class="form-group">
-      <label>6-Digit Authenticator Code</label>
-      <input type="text" placeholder="123456">
-    </div>
-    <button class="btn" style="width:100%;margin-bottom:8px;" 
-onclick="closeModal('auth-modal')">Verify &amp; Enter</button>
-    <button class="btn btn-secondary" style="width:100%;" 
-onclick="closeModal('auth-modal')">Close</button>
-  </div>
-</div>
-
-<footer class="container">
-  <div 
-style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;">
-    <div>
-      <strong>Nabeel Naqeeb Remit</strong>
-      <p style="color:var(--text);margin-top:4px;">Operator: Nabeel Naqeeb 
-• Pendik &amp; Beyoğlu, Istanbul | Dar es Salaam &amp; 
-Zanzibar[span_28](start_span)[span_28](end_span)</p>
-      <p style="color:var(--text);font-size:0.75rem;">Compliant with 
-MASAK, BOT foreign exchange guidelines, and PTT UETS 
-protocols[span_29](start_span)[span_29](end_span).</p>
-    </div>
-    <div>
-      <p>© 2026 Nabeel Naqeeb Remit. All rights 
-reserved[span_30](start_span)[span_30](end_span).</p>
-    </div>
-  </div>
-</footer>
-
-<script>
-  const FX_RATE = 0.0183125;
-
-  function calculateTransfer() {
-    const amount = 
-parseFloat(document.getElementById('send-amount').value) || 0;
-    const customs = amount * 0.04;
-    const total = amount + customs;
-    const payout = amount * FX_RATE;
-
-    document.getElementById('customs-fee').textContent = + 
-${customs.toLocaleString()} TZS;
-    document.getElementById('total-debited').textContent = 
-${total.toLocaleString()} TZS;
-    document.getElementById('payout-amount').textContent = 
-${payout.toFixed(2)} TRY;
-
-    document.getElementById('modal-principal').textContent = 
-${amount.toLocaleString()} TZS;
-    document.getElementById('modal-customs').textContent = + 
-${customs.toLocaleString()} TZS;
-    document.getElementById('modal-debited').textContent = 
-${total.toLocaleString()} TZS;
-    document.getElementById('modal-payout').textContent = 
-${payout.toFixed(2)} TRY;
-  }
-
-  function openModal(id) { 
-document.getElementById(id).classList.add('active'); }
-  function closeModal(id) { 
-document.getElementById(id).classList.remove('active'); }
-
-  function openTransferFlow() {
-    calculateTransfer();
-    goToFlowStep(1);
-    openModal('transfer-modal');
-  }
-
-  function goToFlowStep(step) {
-    document.getElementById('flow-step-1').style.display = step === 1 ? 
-'block' : 'none';
-    document.getElementById('flow-step-2').style.display = step === 2 ? 
-'block' : 'none';
-    document.getElementById('flow-step-3').style.display = step === 3 ? 
-'block' : 'none';
-  }
-
-  function completeTransfer() {
-    const code = document.getElementById('flow-2fa').value;
-    if (!code) {
-      alert('Please provide the 6-digit confirmation code.');
-      return;
+  <!-- Early Theme Detection Script (Prevents Flash of Light Mode) -->
+  <script>
+    if ((localStorage.getItem('nabeel_naqeeb_remit_theme') || localStorage.getItem('naqeeb_theme')) === 'dark' || (!(('nabeel_naqeeb_remit_theme' in localStorage || 'naqeeb_theme' in localStorage)) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
     }
-    goToFlowStep(3);
-  }
+  </script>
+  <style>
+    /* Dark Mode Global Overrides & Transitions */
+    * {
+      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease;
+    }
+    html.dark body {
+      background-color: #090d16 !important;
+      color: #f1f5f9 !important;
+    }
+    html.dark .bg-white {
+      background-color: #0f172a !important;
+      color: #f8fafc !important;
+    }
+    html.dark .bg-slate-50 {
+      background-color: #0b1120 !important;
+    }
+    html.dark .bg-slate-100 {
+      background-color: #1e293b !important;
+    }
+    html.dark .border-slate-100,
+    html.dark .border-slate-200,
+    html.dark .border-slate-200\/80,
+    html.dark .border-slate-300 {
+      border-color: #1e293b !important;
+    }
+    html.dark .text-slate-900 {
+      color: #f8fafc !important;
+    }
+    html.dark .text-slate-800 {
+      color: #e2e8f0 !important;
+    }
+    html.dark .text-slate-700 {
+      color: #cbd5e1 !important;
+    }
+    html.dark .text-slate-600 {
+      color: #94a3b8 !important;
+    }
+    html.dark .text-slate-500 {
+      color: #64748b !important;
+    }
+    html.dark input:not([type="checkbox"]):not([type="radio"]),
+    html.dark select,
+    html.dark textarea {
+      background-color: #1e293b !important;
+      border-color: #334155 !important;
+      color: #f8fafc !important;
+    }
+    html.dark input:not([type="checkbox"]):not([type="radio"]):focus,
+    html.dark select:focus {
+      border-color: #10b981 !important;
+      background-color: #0f172a !important;
+    }
+    html.dark .bg-amber-50 {
+      background-color: rgba(69, 26, 3, 0.45) !important;
+      border-color: rgba(180, 83, 9, 0.5) !important;
+      color: #fde68a !important;
+    }
+    html.dark .bg-emerald-50,
+    html.dark .bg-emerald-50\/50,
+    html.dark .bg-emerald-50\/60,
+    html.dark .bg-emerald-50\/80 {
+      background-color: rgba(6, 78, 59, 0.35) !important;
+      border-color: rgba(16, 185, 129, 0.4) !important;
+    }
+    html.dark .text-emerald-800,
+    html.dark .text-emerald-900 {
+      color: #6ee7b7 !important;
+    }
+    html.dark .text-amber-900,
+    html.dark .text-amber-950 {
+      color: #fcd34d !important;
+    }
+    html.dark .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0b1120;
+    }
+    html.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #334155;
+    }
+    html.dark .shadow-2xl {
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+  </style>
 
-  function trackOrder() {
-    alert('Tracking status refreshed for order: ' + 
-document.getElementById('track-input').value);
-  }
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white">
 
-  function toggleTheme() {
-    document.body.classList.toggle('light');
-  }
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-gradient-to-r from-emerald-900 via-teal-800 to-slate-900 text-white text-xs sm:text-sm py-2 px-4 shadow-sm border-b border-emerald-700/40">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center space-x-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-500/30 text-emerald-200 border border-emerald-400/30">
+          Official Corridor
+        </span>
+        <span class="font-medium">Tanzania (TZS/USD) &rarr; Turkey (TRY/USD) Remittances with 100% Upfront Fees &amp; 4% Customs Declaration</span>
+      </div>
+      <div class="flex items-center space-x-4 text-xs text-emerald-100">
+        <span class="flex items-center gap-1.5 font-medium text-emerald-200">
+          <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          Delivery in &lt; 30 mins (FAST IBAN)
+        </span>
+        <span class="hidden md:inline-block text-emerald-600">|</span>
+        <a href="#customs-info" class="hidden sm:inline-block underline hover:text-white transition">4% Customs Details</a>
+        <span class="hidden md:inline-block text-emerald-600">|</span>
+        <a href="#fee-breakdown" class="hidden sm:inline-block underline hover:text-white transition">Upfront Price Guarantee</a>
+      </div>
+    </div>
+  </div>
 
-  window.addEventListener('DOMContentLoaded', calculateTransfer);
-</script>
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-40 glass-nav border-b border-slate-700/50 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Brand Logo -->
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-500 via-teal-400 to-emerald-300 flex items-center justify-center shadow-lg shadow-emerald-500/25">
+            <span class="text-slate-950 font-extrabold text-xl tracking-tight">NN</span>
+          </div>
+          <div>
+            <div class="flex items-center space-x-1.5">
+              <span class="font-bold text-xl tracking-tight text-white">Nabeel Naqeeb <span class="text-emerald-400">Remit</span></span>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 bg-emerald-500/20 text-emerald-300 rounded border border-emerald-500/30">Official</span>
+            </div>
+            <p class="text-[11px] text-slate-400 font-medium">By Nabeel Naqeeb &bull; Tanzania &rarr; Turkey Express Gateway</p>
+          </div>
+        </div>
+
+        <!-- Desktop Menu Links -->
+        <div class="hidden xl:flex items-center space-x-7 text-sm font-medium text-slate-200">
+          <a href="#calculator" class="hover:text-emerald-400 transition-colors">Calculator</a>
+          <a href="#fee-breakdown" class="hover:text-emerald-400 transition-colors flex items-center gap-1">
+            <span>Fee Breakdown</span>
+            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded font-bold">100% Upfront</span>
+          </a>
+          
+          <a href="#how-it-works" class="hover:text-emerald-400 transition-colors">How It Works</a>
+          <a href="#customs-info" class="hover:text-emerald-400 transition-colors flex items-center gap-1">
+            <span>4% Customs Charge</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          </a>
+          <a href="#partners" class="hover:text-emerald-400 transition-colors">Banks &amp; Payouts</a>
+          <a href="#track-section" class="hover:text-emerald-400 transition-colors">Track Transfer</a>
+        </div>
+
+        <!-- Right User Actions -->
+        <div class="flex items-center space-x-3">
+          <!-- Dark Mode Toggle Button (Desktop) -->
+          <button id="theme-toggle-btn" onclick="toggleDarkMode()" title="Toggle Dark / Light Mode"
+            class="p-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700 text-slate-200 hover:text-emerald-400 transition flex items-center justify-center shadow-sm">
+            <svg id="theme-icon-sun" class="w-5 h-5 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <svg id="theme-icon-moon" class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          </button>
+          <div id="nav-guest-actions" class="hidden flex items-center space-x-2">
+            <button onclick="openAuthModal('login')" class="px-4 py-2 text-sm font-semibold text-slate-200 hover:text-white rounded-lg hover:bg-slate-800 transition">
+              Log In
+            </button>
+            <button onclick="openAuthModal('register')" class="px-4 py-2 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg shadow-md shadow-emerald-600/30 transition transform hover:-translate-y-0.5">
+              Sign Up
+            </button>
+          </div>
+
+          <!-- Send Money Action Button -->
+          <button onclick="startSendFlow()" class="px-3.5 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded-xl shadow-md shadow-emerald-600/30 transition flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+            <span>Send Money</span>
+          </button>
+
+          <div id="nav-user-profile" class="flex items-center space-x-3">
+            <button onclick="openDashboardModal('security')" title="Security & Operator Hub" class="flex items-center space-x-2.5 px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 transition group">
+              <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs border border-emerald-500/40">
+                <span id="nav-user-avatar">NN</span>
+              </div>
+              <div class="text-left hidden sm:block">
+                <div class="text-xs font-semibold text-slate-200 group-hover:text-emerald-300" id="nav-user-name">Nabeel Naqeeb</div>
+                <div class="text-[10px] text-emerald-400 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Verified Operator &bull; 2FA Active
+                </div>
+              </div>
+              <svg class="w-4 h-4 text-slate-400 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <button onclick="logoutUser()" title="Logout" class="p-2 text-slate-400 hover:text-rose-400 hover:bg-slate-800/60 rounded-lg transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+            </button>
+          </div>
+
+          <button onclick="toggleMobileMenu()" class="xl:hidden p-2 text-slate-300 hover:text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu dropdown -->
+    <div id="mobile-menu" class="hidden xl:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3 text-sm">
+      <div class="pb-3 border-b border-slate-800 flex items-center justify-between">
+        <span class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Interface Theme</span>
+        <button onclick="toggleDarkMode()" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-bold text-slate-200 hover:text-emerald-400">
+          <span id="mobile-theme-icon">🌙</span>
+          <span id="mobile-theme-text">Dark Mode</span>
+        </button>
+      </div>
+      <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-emerald-400">Transfer Calculator</a>
+      <a href="#fee-breakdown" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-emerald-400">Upfront Fee Breakdown</a>
+      
+      <a href="#how-it-works" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-emerald-400">How It Works</a>
+      <a href="#customs-info" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-emerald-400">4% Customs Clearance</a>
+      <a href="#partners" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-emerald-400">Payout Partners &amp; IBAN</a>
+      <a href="#track-section" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-medium hover:text-emerald-400">Track Transfer</a>
+      <div class="pt-2 border-t border-slate-800 flex gap-2">
+        <button onclick="startSendFlow(); toggleMobileMenu();" class="flex-1 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs text-center flex items-center justify-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          <span>Send Money Now</span>
+        </button>
+        <button onclick="openDashboardModal('security'); toggleMobileMenu();" class="flex-1 py-2 rounded-xl bg-slate-800 text-slate-200 border border-slate-700 font-bold text-xs text-center">
+          Account &amp; Security
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION WITH INTEGRATED TRANSFER CALCULATOR -->
+  <section id="calculator" class="relative bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white pt-10 pb-20 overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[750px] h-[360px] bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left: Value Proposition & Hero Copy -->
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-800 border border-emerald-500/40 text-emerald-400 text-xs font-semibold">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span>Tanzania &rarr; Turkey Dedicated Corridor</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12]">
+            Send Money to Turkey with <br class="hidden sm:inline">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200">100% Upfront Fee Transparency</span>
+            &amp; Instant FAST Payout.
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+            Direct remittances from <strong class="text-white font-semibold">Vodacom M-Pesa, Tigo Pesa, Airtel Money &amp; Bank Wire</strong> to <strong class="text-white font-semibold">Turkish Bank IBANs (VakıfBank, Ziraat)</strong> or Istanbul Cash Desks. Includes transparent <strong class="text-amber-300 font-semibold">4% regulatory customs clearance</strong> and real cash <strong class="text-amber-300 font-semibold">referral bonuses</strong>.
+          </p>
+
+          <!-- 4 Core Guarantee Badges -->
+          <div class="pt-2 grid grid-cols-2 sm:grid-cols-2 gap-3 max-w-xl mx-auto lg:mx-0 text-left">
+            <div class="flex items-center space-x-3 p-3 rounded-2xl bg-slate-800/70 border border-slate-700/70">
+              <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white">Upfront Price Guarantee</div>
+                <div class="text-[11px] text-slate-400">Zero hidden fees at delivery</div>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-3 p-3 rounded-2xl bg-slate-800/70 border border-slate-700/70">
+              <div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white">4% Customs Clearance</div>
+                <div class="text-[11px] text-slate-400">Official TR border certificate</div>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-3 p-3 rounded-2xl bg-slate-800/70 border border-slate-700/70">
+              <div class="w-9 h-9 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white">Instant FAST Transfer</div>
+                <div class="text-[11px] text-slate-400">Direct to IBAN in &lt; 30 mins</div>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-3 p-3 rounded-2xl bg-slate-800/70 border border-slate-700/70">
+              <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white">M-Pesa &amp; Banks</div>
+                <div class="text-[11px] text-slate-400">Direct to VakıfBank &amp; Ziraat</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trust snippet -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2 text-xs text-slate-400">
+            <span class="flex items-center gap-1.5 text-slate-300">
+              <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              Founder &amp; Operator: <strong>Nabeel Naqeeb</strong>
+            </span>
+            <span>&bull;</span>
+            <span>Pendik, Istanbul &bull; Dar es Salaam &bull; Zanzibar</span>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Transfer Calculator Card -->
+        <div class="lg:col-span-6">
+          <div class="bg-white text-slate-900 rounded-3xl shadow-2xl p-6 sm:p-8 border border-slate-100 relative">
+            
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
+              <div>
+                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                  <span>Transfer Calculator</span>
+                  <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold">Live Real-time FX</span>
+                </h3>
+                <p class="text-xs text-slate-500 mt-0.5">Itemized upfront fee guarantee prior to booking</p>
+              </div>
+              <div class="flex bg-slate-100 p-1 rounded-xl text-xs font-semibold">
+                <button id="speed-fast" onclick="setSpeed('fast')" class="px-3 py-1.5 rounded-lg bg-white text-emerald-700 shadow-sm transition font-semibold">
+                  FAST Instant
+                </button>
+                <button id="speed-standard" onclick="setSpeed('standard')" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition font-semibold">
+                  Standard
+                </button>
+              </div>
+            </div>
+
+            <!-- Sending Amount Field -->
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between items-center text-xs font-semibold text-slate-600 mb-1.5">
+                  <label for="send-amount">You Send (Principal)</label>
+                  <span class="text-slate-500 flex items-center gap-1">🇹🇿 From Tanzania</span>
+                </div>
+                <div class="relative flex items-center">
+                  <input type="number" id="send-amount" value="500000" min="5000" step="5000" oninput="calculateTransfer()" 
+                    class="w-full pl-4 pr-32 py-3.5 bg-slate-50 hover:bg-slate-100/70 focus:bg-white border-2 border-slate-200 focus:border-emerald-500 rounded-2xl text-2xl font-bold text-slate-900 outline-none transition font-mono">
+                  <div class="absolute right-2 flex items-center">
+                    <select id="send-currency" onchange="calculateTransfer()" class="bg-slate-200/80 hover:bg-slate-300/80 text-slate-800 font-bold text-sm py-2 px-3 rounded-xl outline-none cursor-pointer">
+                      <option value="TZS" selected>TZS (Shilling)</option>
+                      <option value="USD">USD ($)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center text-[11px] text-slate-400 mt-1 px-1">
+                  <span>Min: 5,000 TZS (~$2)</span>
+                  <span>Daily limit: 15,000,000 TZS</span>
+                </div>
+              </div>
+
+
+
+              <!-- Corridor Breakdown / Upfront Fee Indicator -->
+              <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-2.5 text-xs">
+                <div class="flex justify-between items-center text-slate-500 pb-1 border-b border-slate-200/60 font-semibold uppercase tracking-wider text-[10px]">
+                  <span>Itemized Fee Component</span>
+                  <span>Amount / Cost</span>
+                </div>
+
+                <!-- Base Exchange Rate -->
+                <div class="flex justify-between items-center text-slate-600">
+                  <span class="flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    Locked Interbank FX Rate (0% spread):
+                  </span>
+                  <span id="display-rate" class="font-bold text-slate-800 font-mono">1 TZS = 0.018312 TRY</span>
+                </div>
+
+                <!-- 4% Customs & Regulatory Charge -->
+                <div class="flex justify-between items-center bg-amber-50 p-2 rounded-xl border border-amber-200/70 text-amber-900">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-4 h-4 rounded-full bg-amber-200 text-amber-800 font-bold flex items-center justify-center text-[10px]">!</span>
+                    <div>
+                      <span class="font-bold">4% Customs Clearance Fee</span>
+                      <p class="text-[10px] text-amber-700 font-normal leading-tight">Official TR border declaration &amp; stamp duty</p>
+                    </div>
+                  </div>
+                  <span id="display-customs-fee" class="font-bold font-mono text-amber-900">+ 20,000 TZS</span>
+                </div>
+
+                <!-- Service Fee -->
+                <div class="flex justify-between items-center text-slate-600">
+                  <span>Transfer Platform Fee:</span>
+                  <span id="display-service-fee" class="font-medium text-emerald-600 font-mono">0 TZS (Launch Special Promo)</span>
+                </div>
+
+                <!-- Payment Rails Surcharge -->
+                <div class="flex justify-between items-center text-slate-600">
+                  <span>Tanzania Payment Rails (M-Pesa/Tigo/Bank):</span>
+                  <span class="font-medium text-emerald-600 font-mono">0 TZS (Included / Free)</span>
+                </div>
+
+
+
+                <!-- Total Debited / Cost -->
+                <div class="flex justify-between items-center pt-2.5 border-t border-slate-200 font-semibold text-slate-700">
+                  <div>
+                    <span class="font-bold text-slate-900 block">Total Debited Upfront:</span>
+                    <span class="text-[10px] text-slate-500 font-normal">Guaranteed exact amount charged</span>
+                  </div>
+                  <span id="display-total-pay" class="font-extrabold text-base text-slate-900 font-mono">510,000 TZS</span>
+                </div>
+              </div>
+
+              <!-- Receiving Amount Field -->
+              <div>
+                <div class="flex justify-between items-center text-xs font-semibold text-slate-600 mb-1.5">
+                  <label for="receive-amount">Recipient Gets (Guaranteed Payout)</label>
+                  <span class="text-slate-500 flex items-center gap-1">🇹🇷 In Turkey</span>
+                </div>
+                <div class="relative flex items-center">
+                  <input type="text" id="receive-amount" readonly 
+                    class="w-full pl-4 pr-32 py-3.5 bg-emerald-50/60 border-2 border-emerald-200 rounded-2xl text-2xl font-extrabold text-emerald-800 outline-none font-mono">
+                  <div class="absolute right-2 flex items-center">
+                    <select id="receive-currency" onchange="calculateTransfer()" class="bg-emerald-200/70 hover:bg-emerald-300/70 text-emerald-900 font-bold text-sm py-2 px-3 rounded-xl outline-none cursor-pointer">
+                      <option value="TRY" selected>TRY (₺)</option>
+                      <option value="USD">USD ($)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between text-[11px] text-slate-500 mt-1 px-1">
+                  <span class="flex items-center gap-1 text-emerald-600 font-medium">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Locked rate for 15 minutes (0% fee at payout)
+                  </span>
+                  <span id="delivery-speed-label" class="font-semibold text-slate-700">Estimated: ~20 mins via FAST</span>
+                </div>
+              </div>
+
+              <!-- Payout Method Selection -->
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Receiving Method in Turkey</label>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                  <label class="payout-option flex items-center space-x-2 p-2.5 rounded-xl border border-emerald-500 bg-emerald-50/50 cursor-pointer">
+                    <input type="radio" name="payout_method" value="iban" checked onchange="updatePayoutMethod(this.value)" class="text-emerald-600 focus:ring-emerald-500">
+                    <div>
+                      <div class="font-bold text-slate-800">Turkish Bank IBAN</div>
+                      <div class="text-[10px] text-slate-500">VakıfBank, Ziraat, FAST (0 TRY fee)</div>
+                    </div>
+                  </label>
+                  <label class="payout-option flex items-center space-x-2 p-2.5 rounded-xl border border-slate-200 hover:border-slate-300 cursor-pointer">
+                    <input type="radio" name="payout_method" value="cash" onchange="updatePayoutMethod(this.value)" class="text-emerald-600 focus:ring-emerald-500">
+                    <div>
+                      <div class="font-bold text-slate-800">Cash Pickup (Istanbul)</div>
+                      <div class="text-[10px] text-slate-500">Pendik / Fatih Branches</div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Main CTA Action -->
+              <button onclick="startSendFlow()" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-base shadow-lg shadow-emerald-600/30 transition transform hover:-translate-y-0.5 flex items-center justify-center space-x-2">
+                <span>Proceed to Upfront Review &amp; Send</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- DEDICATED SECTION 1: UPFRONT FEE BREAKDOWN & TRANSPARENCY PHILOSOPHY -->
+  <!-- ========================================================================= -->
+  <section id="fee-breakdown" class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">
+          <span>Zero Hidden Costs Guarantee</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Upfront Fee Breakdown Before Every Confirmation
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
+          Traditional international transfers lose up to 12% in hidden FX margins, correspondent routing fees, and surprise receiving deductions. Nabeel Naqeeb Remit guarantees complete, line-by-line upfront disclosure before you confirm any payment.
+        </p>
+      </div>
+
+      <!-- The 4 Pillars of Nabeel Naqeeb Remit Transparency -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200/80 hover:shadow-md transition">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-base mb-3">
+            01
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-1">Pre-Transaction Review</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            You are shown an immutable review screen before authorization showing exact debited shillings and net received liras.
+          </p>
+        </div>
+
+        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200/80 hover:shadow-md transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-base mb-3">
+            02
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-1">Itemized 4% Customs Fee</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            The 4% Turkish regulatory customs fee is itemized as a separate line item with an official certificate number for full tax compliance.
+          </p>
+        </div>
+
+        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200/80 hover:shadow-md transition">
+          <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-base mb-3">
+            03
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-1">True Interbank Rate</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            We lock the real market exchange rate for 15 minutes with 0% hidden FX spread markup. What you see is what gets converted.
+          </p>
+        </div>
+
+        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200/80 hover:shadow-md transition">
+          <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-base mb-3">
+            04
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-1">Zero Destination Charges</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Recipient banks in Turkey (VakıfBank, Ziraat, İş Bankası) receive funds via FAST with zero inward wire deductions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Comparison Table: Nabeel Naqeeb Remit vs Banks vs Informal Brokers -->
+      <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="p-6 bg-slate-900 text-white flex flex-wrap justify-between items-center gap-4">
+          <div>
+            <h4 class="text-lg font-bold">Corridor Cost &amp; Transparency Comparison</h4>
+            <p class="text-xs text-slate-400">Comparing a standard 500,000 TZS transfer to a Turkish Bank IBAN</p>
+          </div>
+          <div class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs font-semibold border border-emerald-500/40">
+            Verified August 2026 Rates
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-700 border-b border-slate-200 font-semibold">
+              <tr>
+                <th class="py-3.5 px-4 sm:px-6">Comparison Feature</th>
+                <th class="py-3.5 px-4 text-emerald-700 font-extrabold bg-emerald-50/50">Nabeel Naqeeb Remit (Official)</th>
+                <th class="py-3.5 px-4 text-slate-600">Traditional Banks (SWIFT)</th>
+                <th class="py-3.5 px-4 text-slate-600">Informal Hawala / Unofficial</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-600">
+              <tr class="hover:bg-slate-50/50">
+                <td class="py-3 px-4 sm:px-6 font-semibold text-slate-800">Upfront Fee Breakdown</td>
+                <td class="py-3 px-4 font-bold text-emerald-700 bg-emerald-50/30">✓ Full Itemized Screen Before Payment</td>
+                <td class="py-3 px-4 text-rose-600">✕ Hidden intermediary fees</td>
+                <td class="py-3 px-4 text-amber-600">⚠️ Verbal estimate only</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50">
+                <td class="py-3 px-4 sm:px-6 font-semibold text-slate-800">Regulatory Customs Compliance</td>
+                <td class="py-3 px-4 font-bold text-emerald-700 bg-emerald-50/30">✓ Transparent 4% official clearance</td>
+                <td class="py-3 px-4 text-slate-500">Unclear tariffs &amp; correspondent fees</td>
+                <td class="py-3 px-4 text-rose-600 font-semibold">✕ Unregistered (Account freeze risk)</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50">
+                <td class="py-3 px-4 sm:px-6 font-semibold text-slate-800">Exchange Rate Spread</td>
+                <td class="py-3 px-4 font-bold text-emerald-700 bg-emerald-50/30">0% (Direct Interbank FX Locked)</td>
+                <td class="py-3 px-4">3.5% – 6.0% hidden spread markup</td>
+                <td class="py-3 px-4">5.0% – 8.0% volatile spread</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50">
+                <td class="py-3 px-4 sm:px-6 font-semibold text-slate-800">Delivery Speed to Turkish IBAN</td>
+                <td class="py-3 px-4 font-bold text-emerald-700 bg-emerald-50/30">15 – 30 Minutes (Instant FAST)</td>
+                <td class="py-3 px-4">3 – 5 Business Days</td>
+                <td class="py-3 px-4">1 – 2 Days (Uncertain)</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50">
+                <td class="py-3 px-4 sm:px-6 font-semibold text-slate-800">Recipient Payout (on 500k TZS)</td>
+                <td class="py-3 px-4 font-extrabold text-sm text-emerald-700 bg-emerald-50/30">9,156.25 TRY (Guaranteed)</td>
+                <td class="py-3 px-4 font-mono text-slate-600">~ 8,320 TRY (-836 TRY lost)</td>
+                <td class="py-3 px-4 font-mono text-slate-600">~ 8,450 TRY (-706 TRY lost)</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50">
+                <td class="py-3 px-4 sm:px-6 font-semibold text-slate-800">Security &amp; 2FA Protection</td>
+                <td class="py-3 px-4 font-bold text-emerald-700 bg-emerald-50/30">✓ Cryptographic TOTP 2FA (MASAK Compliant)</td>
+                <td class="py-3 px-4 text-slate-400">Basic SMS / Email</td>
+                <td class="py-3 px-4 text-rose-600 font-semibold">✕ None (High Fraud Risk)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRANSFER TRACKER SECTION -->
+  <section id="track-section" class="py-12 bg-white border-y border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="space-y-1 text-center md:text-left">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Live Status Tracker</span>
+            <h3 class="text-2xl font-bold">Track Any Remittance Order</h3>
+            <p class="text-xs text-slate-400">Enter your Nabeel Naqeeb Remit reference code (e.g. NQ-TZTR-89421)</p>
+          </div>
+          <div class="w-full md:w-auto flex-1 max-w-md flex flex-col sm:flex-row gap-2">
+            <input type="text" id="track-input" placeholder="e.g. NQ-TZTR-89421" value="NQ-TZTR-89421"
+              class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-mono">
+            <button onclick="trackTransfer()" class="px-5 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm rounded-xl transition shrink-0">
+              Track Status
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Tracker Result Container -->
+        <div id="tracker-result" class="hidden mt-6 pt-6 border-t border-slate-800">
+          <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
+            <div>
+              <span class="text-xs text-slate-400 font-mono" id="tr-code">NQ-TZTR-89421</span>
+              <h4 class="text-lg font-bold text-white" id="tr-recipient">Recipient: Yusuf Al-Mazroui (VakıfBank Istanbul)</h4>
+            </div>
+            <div class="text-right">
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" id="tr-badge">
+                COMPLETED &bull; PAID OUT
+              </span>
+              <div class="text-xs text-slate-400 mt-1 font-mono" id="tr-amount">500,000 TZS &rarr; 9,156.25 TRY</div>
+            </div>
+          </div>
+
+          <!-- Stepper Timeline -->
+          <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs pt-2">
+            <div class="p-3 bg-slate-800/80 rounded-xl border border-emerald-500/30">
+              <div class="text-emerald-400 font-bold mb-0.5 flex items-center gap-1">
+                <span>✓</span> 1. Payment Received
+              </div>
+              <div class="text-[11px] text-slate-400">Vodacom M-Pesa (TZ)</div>
+              <div class="text-[10px] text-slate-500 mt-1">Confirmed 14:10 EAT</div>
+            </div>
+            <div class="p-3 bg-slate-800/80 rounded-xl border border-emerald-500/30">
+              <div class="text-emerald-400 font-bold mb-0.5 flex items-center gap-1">
+                <span>✓</span> 2. Customs Cleared
+              </div>
+              <div class="text-[11px] text-slate-400">4% Tariff Declared (TR)</div>
+              <div class="text-[10px] text-slate-500 mt-1">Declaration #TR-7729</div>
+            </div>
+            <div class="p-3 bg-slate-800/80 rounded-xl border border-emerald-500/30">
+              <div class="text-emerald-400 font-bold mb-0.5 flex items-center gap-1">
+                <span>✓</span> 3. FX Conversion
+              </div>
+              <div class="text-[11px] text-slate-400">TZS to TRY Locked</div>
+              <div class="text-[10px] text-slate-500 mt-1">Rate: 0.0183125</div>
+            </div>
+            <div class="p-3 bg-slate-800/80 rounded-xl border border-emerald-500/30">
+              <div class="text-emerald-400 font-bold mb-0.5 flex items-center gap-1">
+                <span>✓</span> 4. IBAN Dispatched
+              </div>
+              <div class="text-[11px] text-slate-400">Instant FAST Transfer</div>
+              <div class="text-[10px] text-emerald-400 mt-1">Funds in Account</div>
+            </div>
+          </div>
+
+          <!-- Itemized Upfront Fee Verification in Tracker -->
+          <div class="mt-4 p-3 bg-slate-800/60 rounded-xl border border-slate-700/80 text-[11px] flex flex-wrap justify-between items-center gap-2">
+            <span class="text-slate-400">Upfront Breakdown Audited:</span>
+            <span class="font-mono text-slate-300">Principal: 500,000 TZS &bull; 4% Customs: +20,000 TZS &bull; Platform Fee: 0 TZS &bull; Net Payout: 9,156.25 TRY</span>
+            <span class="text-emerald-400 font-semibold">Zero Discrepancy ✓</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS & CORRIDOR PROCESS -->
+  <section id="how-it-works" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-xs font-bold tracking-widest text-emerald-600 uppercase">Simplified Cross-Border Flow</h2>
+        <h3 class="text-3xl font-extrabold text-slate-900 mt-2">How Nabeel Naqeeb Remit Works</h3>
+        <p class="text-slate-600 text-sm mt-3">From mobile money wallets in Tanzania straight into Turkish bank accounts or Istanbul cash desks in 4 easy steps.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition relative">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-extrabold text-lg mb-4">
+            01
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 mb-2">Calculate &amp; Quote</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Select your sending amount in TZS or USD. View real-time exchange rates with the transparent 4% customs clearance fee and referral discount clearly itemized.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition relative">
+          <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center font-extrabold text-lg mb-4">
+            02
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 mb-2">Recipient in Turkey</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Provide recipient's full legal name and Turkish IBAN (VakıfBank, Ziraat, İş Bankası, etc.) or choose cash pickup at our Istanbul office.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition relative">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-extrabold text-lg mb-4">
+            03
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 mb-2">Pay via Mobile Money</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Complete payment locally in Tanzania using Vodacom M-Pesa, Tigo Pesa, Airtel Money, Halopesa, or local Tanzanian bank wire.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition relative">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-extrabold text-lg mb-4">
+            04
+          </div>
+          <h4 class="text-lg font-bold text-slate-900 mb-2">Instant FAST Payout</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Funds are converted and cleared through customs, then dispatched to Turkey in minutes. Receive SMS and tracking receipt automatically.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4% CUSTOMS & REGULATORY TRANSPARENCY SECTION -->
+  <section id="customs-info" class="py-16 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          
+          <div class="lg:col-span-7 space-y-4">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-semibold">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+              <span>Regulatory Compliance &amp; Declaration</span>
+            </div>
+
+            <h3 class="text-3xl font-extrabold tracking-tight">Understanding the 4% Customs Charge</h3>
+            
+            <p class="text-slate-300 text-sm leading-relaxed">
+              When sending capital and commercial remittances from Tanzania into the Republic of Turkey, financial and border customs protocols mandate an official <strong class="text-white">4% customs clearance fee</strong>. This covers cross-border clearing, banking stamp duty, and electronic notification verification (e.g. UETS &amp; regulatory reporting).
+            </p>
+
+            <div class="space-y-3 pt-2 text-xs">
+              <div class="flex items-start space-x-3 bg-slate-800/60 p-3 rounded-xl border border-slate-700">
+                <span class="text-emerald-400 font-bold text-base">✓</span>
+                <div>
+                  <strong class="text-white block font-semibold">100% Tax &amp; Customs Compliant</strong>
+                  <span class="text-slate-400">Protects both sender and receiver from unexpected Turkish customs audits or frozen bank transfers.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3 bg-slate-800/60 p-3 rounded-xl border border-slate-700">
+                <span class="text-emerald-400 font-bold text-base">✓</span>
+                <div>
+                  <strong class="text-white block font-semibold">Pre-Cleared for Turkish Banking System</strong>
+                  <span class="text-slate-400">Ensures immediate credit at VakıfBank, Ziraat Bankası, and other Turkish banking destinations without holding periods.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3 bg-slate-800/60 p-3 rounded-xl border border-slate-700">
+                <span class="text-emerald-400 font-bold text-base">✓</span>
+                <div>
+                  <strong class="text-white block font-semibold">Transparently Calculated Upfront</strong>
+                  <span class="text-slate-400">Never tacked on later or deducted secretly from the recipient's payout. You see the exact 4% amount before you confirm.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-slate-800/90 rounded-2xl p-6 border border-slate-700/80 shadow-inner space-y-4">
+            <h4 class="text-sm font-bold text-white uppercase tracking-wider text-amber-300">Customs Clearance Example</h4>
+            
+            <div class="space-y-2 text-xs">
+              <div class="flex justify-between py-1.5 border-b border-slate-700 text-slate-300">
+                <span>Remittance Principal (Tanzania):</span>
+                <span class="font-mono font-bold text-white">500,000 TZS</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-slate-700 text-amber-300 font-semibold">
+                <span>Official Customs Fee (4.0%):</span>
+                <span class="font-mono font-bold">+ 20,000 TZS</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-slate-700 text-slate-300">
+                <span>Nabeel Naqeeb Remit Service Fee:</span>
+                <span class="font-mono text-emerald-400">0 TZS (Free Promo)</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-slate-600 text-white font-bold">
+                <span>Total Debited from Sender:</span>
+                <span class="font-mono text-emerald-300">520,000 TZS</span>
+              </div>
+              <div class="flex justify-between py-2 text-emerald-400 font-extrabold bg-emerald-950/60 px-3 rounded-xl border border-emerald-800">
+                <span>Guaranteed Recipient Payout:</span>
+                <span class="font-mono text-base">9,156.25 TRY</span>
+              </div>
+            </div>
+
+            <div class="text-[11px] text-slate-400 italic">
+              Note: An official Turkish Customs Clearance Declaration Certificate with barcode is generated for every completed transaction.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANKING & PAYOUT PARTNERS -->
+  <section id="partners" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-xs font-bold tracking-widest text-emerald-600 uppercase">Trusted Integration</h2>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">Connecting Tanzanian &amp; Turkish Financial Rails</h3>
+        <p class="text-slate-600 text-xs sm:text-sm mt-2">Deposit easily from anywhere in Tanzania and receive funds in seconds across all major Turkish financial networks.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Tanzania Send Rails -->
+        <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200">
+          <div class="flex items-center space-x-3 mb-6">
+            <span class="text-2xl">🇹🇿</span>
+            <div>
+              <h4 class="text-lg font-bold text-slate-900">Tanzania Deposit Methods</h4>
+              <p class="text-xs text-slate-500">Pay directly with your local wallet or bank</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/70">
+              <span class="font-bold text-red-600 block text-sm">Vodacom M-Pesa</span>
+              <span class="text-slate-500 text-[11px]">Instant STK push or Paybill</span>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/70">
+              <span class="font-bold text-blue-600 block text-sm">Tigo Pesa</span>
+              <span class="text-slate-500 text-[11px]">Direct mobile payment</span>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/70">
+              <span class="font-bold text-red-500 block text-sm">Airtel Money</span>
+              <span class="text-slate-500 text-[11px]">Zero merchant surcharge</span>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/70">
+              <span class="font-bold text-emerald-600 block text-sm">CRDB / NMB Bank</span>
+              <span class="text-slate-500 text-[11px]">Local bank wire &amp; deposits</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Turkey Payout Rails -->
+        <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200">
+          <div class="flex items-center space-x-3 mb-6">
+            <span class="text-2xl">🇹🇷</span>
+            <div>
+              <h4 class="text-lg font-bold text-slate-900">Turkey Payout Channels</h4>
+              <p class="text-xs text-slate-500">Instant FAST bank deposits &amp; cash desks</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/70">
+              <span class="font-bold text-amber-700 block text-sm">VakıfBank</span>
+              <span class="text-slate-500 text-[11px]">Direct FAST / IBAN transfer</span>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/70">
+              <span class="font-bold text-red-700 block text-sm">Ziraat Bankası</span>
+              <span class="text-slate-500 text-[11px]">National retail bank network</span>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/70">
+              <span class="font-bold text-slate-800 block text-sm">All Turkish Banks</span>
+              <span class="text-slate-500 text-[11px]">İş Bank, Garanti, QNB, Papara</span>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/70">
+              <span class="font-bold text-teal-700 block text-sm">Istanbul Cash Pickup</span>
+              <span class="text-slate-500 text-[11px]">Pendik &amp; Fatih service hubs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="py-16 bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <h2 class="text-xs font-bold tracking-widest text-emerald-600 uppercase">Got Questions?</h2>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">Frequently Asked Questions</h3>
+      </div>
+
+      <div class="space-y-4 text-sm">
+        <details class="bg-slate-50 p-4 rounded-2xl border border-slate-200 group">
+          <summary class="font-bold text-slate-800 cursor-pointer flex justify-between items-center">
+            <span>Which payment methods and Turkish banks are supported?</span>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">&darr;</span>
+          </summary>
+          <div class="pt-3 text-xs text-slate-600 leading-relaxed">
+            Senders in Tanzania can deposit using <strong>Vodacom M-Pesa, Tigo Pesa, Airtel Money, Halopesa</strong>, or local bank wire (CRDB, NMB). Payouts in Turkey are dispatched directly via Turkish Central Bank FAST rails to any bank IBAN (including <strong>VakıfBank, Ziraat Bankası, Türkiye İş Bankası, Garanti BBVA</strong>) in under 30 minutes, or collected in cash at our Istanbul branch desks (Pendik &amp; Fatih).
+          </div>
+        </details>
+
+        <details class="bg-slate-50 p-4 rounded-2xl border border-slate-200 group">
+          <summary class="font-bold text-slate-800 cursor-pointer flex justify-between items-center">
+            <span>What does "Upfront Fee Breakdown" mean?</span>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">&darr;</span>
+          </summary>
+          <div class="pt-3 text-xs text-slate-600 leading-relaxed">
+            Unlike other brokers who deduct fees secretly during currency conversion or let intermediate Turkish correspondent banks shave off 50 to 150 TRY, Nabeel Naqeeb Remit displays an exact, itemized financial summary prior to confirmation. You see the principal, the exact 4% customs clearance fee and the exact guaranteed net amount the recipient will receive in Turkey.
+          </div>
+        </details>
+
+        <details class="bg-slate-50 p-4 rounded-2xl border border-slate-200 group">
+          <summary class="font-bold text-slate-800 cursor-pointer flex justify-between items-center">
+            <span>What is the 4% customs charge and why is it required?</span>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">&darr;</span>
+          </summary>
+          <div class="pt-3 text-xs text-slate-600 leading-relaxed">
+            The 4% customs fee is the regulatory and customs processing charge required for cross-border currency transfers and commercial consignments entering the Turkish financial framework from East Africa. It guarantees that funds arrive clean, declared, and protected against local banking freezes or tax queries.
+          </div>
+        </details>
+
+        <details class="bg-slate-50 p-4 rounded-2xl border border-slate-200 group">
+          <summary class="font-bold text-slate-800 cursor-pointer flex justify-between items-center">
+            <span>How fast does the recipient receive money in Turkey?</span>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">&darr;</span>
+          </summary>
+          <div class="pt-3 text-xs text-slate-600 leading-relaxed">
+            Using our <strong>FAST Instant</strong> mode, transfers to Turkish bank accounts (e.g. VakıfBank, Ziraat Bankası, etc.) typically land in under 20 to 30 minutes after M-Pesa or bank receipt confirmation. Cash pickups at our Istanbul partner centers are available same-day during business hours.
+          </div>
+        </details>
+
+        <details class="bg-slate-50 p-4 rounded-2xl border border-slate-200 group">
+          <summary class="font-bold text-slate-800 cursor-pointer flex justify-between items-center">
+            <span>How does the 15-minute exchange rate lock protect me?</span>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">&darr;</span>
+          </summary>
+          <div class="pt-3 text-xs text-slate-600 leading-relaxed">
+            When you calculate your transfer, our real-time exchange rate engine locks the interbank FX quote for a full 15 minutes with 0% currency spread margin. This completely protects your recipient from adverse exchange rate fluctuations while you authorize your payment from Tanzania.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="space-y-3">
+          <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500 text-white font-extrabold flex items-center justify-center text-sm">NN</div>
+            <span class="text-white font-bold text-base">Nabeel Naqeeb Remit</span>
+          </div>
+          <p class="text-[11px] leading-relaxed">
+            Operated by Nabeel Naqeeb. Dedicated cross-border financial bridge linking Tanzania with Turkey with 100% upfront fee transparency and 4% customs compliance.
+          </p>
+        </div>
+
+        <div>
+          <h5 class="text-white font-semibold mb-2">Branch &amp; Hub Locations</h5>
+          <ul class="space-y-1.5 text-[11px]">
+            <li><strong>Turkey:</strong> Pendik &amp; Beyoğlu, Istanbul</li>
+            <li><strong>Tanzania:</strong> Dar es Salaam &amp; Zanzibar</li>
+            <li>Compliant with PTT UETS &amp; MASAK / BOT</li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-white font-semibold mb-2">Programs &amp; Payouts</h5>
+          <ul class="space-y-1.5 text-[11px]">
+            <li><a href="#customs-info" class="hover:text-emerald-400 transition">4% Customs Clearance Protocol</a></li>
+            <li><a href="#fee-breakdown" class="hover:text-emerald-400 transition">Upfront Price Guarantee</a></li>
+            <li>VakıfBank &amp; Ziraat FAST 24/7</li>
+            <li>Vodacom M-Pesa &amp; Tigo Pesa Rails</li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-white font-semibold mb-2">Contact &amp; Support</h5>
+          <ul class="space-y-1.5 text-[11px]">
+            <li>WhatsApp: <a href="https://wa.me/" class="text-emerald-400 hover:underline">+90 530 000 0000</a></li>
+            <li>Email: <span class="text-slate-300">support@nabeelnaqeebremit.com</span></li>
+            <li>Hours: Mon - Sat 08:00 - 22:00 (EAT / TRT)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px]">
+        <div>&copy; 2026 Nabeel Naqeeb Remit &bull; Nabeel Naqeeb. All rights reserved.</div>
+        <div class="flex space-x-4">
+          <a href="#fee-breakdown" class="hover:text-white transition">Fee Transparency</a>
+          <a href="#customs-info" class="hover:text-white transition">4% Customs Disclosure</a>
+          <a href="#track-section" class="hover:text-white transition">Track Remittance</a>
+          <a href="#" class="hover:text-white transition">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- MODALS SECTION: AUTH, DASHBOARD (SECURITY & PROFILE), SEND WIZARD -->
+  <!-- ========================================================================= -->
+
+  <!-- AUTHENTICATION MODAL (LOGIN / REGISTER) -->
+  <div id="auth-modal" class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100">
+      <button onclick="closeAuthModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1.5 rounded-full hover:bg-slate-100">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+<!-- 2FA Challenge View (Hidden by default, shown when 2FA is required) -->
+      <div id="auth-2fa-challenge" class="hidden space-y-5">
+        <div class="text-center space-y-2">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center shadow-lg shadow-emerald-600/20">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+          </div>
+          <h3 class="text-xl font-extrabold text-slate-900">Two-Factor Authentication</h3>
+          <p class="text-xs text-slate-500">Security checkpoint for <strong class="text-slate-800" id="auth-2fa-identifier-display">nabeel.naqeeb@example.com</strong></p>
+        </div>
+
+        <div class="p-3.5 bg-emerald-50 rounded-2xl border border-emerald-200 text-xs text-emerald-900 space-y-1">
+          <div class="font-bold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Enter 6-Digit Verification Code</span>
+          </div>
+          <p class="text-[11px] text-emerald-800">Please enter the timed verification code from your Google Authenticator / Authy app or the SMS code sent to your registered phone.</p>
+        </div>
+
+        <form id="form-2fa-login" onsubmit="verifyTwoFactorLogin(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5 text-center">Security Code (6 Digits)</label>
+            <input type="text" id="login-2fa-input" maxlength="9" placeholder="123456" autofocus
+              class="w-full text-center py-3 px-4 bg-slate-50 border-2 border-emerald-400 rounded-2xl text-2xl font-mono font-extrabold tracking-[0.3em] text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-inner">
+          </div>
+
+          <div class="flex items-center justify-between text-xs">
+            <button type="button" onclick="quickFillDemo2FA()" class="text-emerald-600 font-bold hover:underline flex items-center gap-1">
+              <span>⚡ Quick Fill Demo Code (123456)</span>
+            </button>
+            <button type="button" onclick="useBackupCodeLoginPrompt()" class="text-slate-500 hover:text-slate-800 hover:underline">
+              Use Backup Code
+            </button>
+          </div>
+
+          <button type="submit" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm rounded-xl shadow-lg shadow-emerald-600/30 transition transform hover:-translate-y-0.5">
+            Verify &amp; Access Account &rarr;
+          </button>
+
+          <button type="button" onclick="cancelTwoFactorLogin()" class="w-full py-2.5 text-xs text-slate-500 hover:text-slate-700 font-semibold transition">
+            &larr; Back to standard login
+          </button>
+        </form>
+      </div>
+
+      <div id="auth-tab-buttons" class="flex border-b border-slate-200 mb-6">
+        <button id="auth-tab-login" onclick="switchAuthTab('login')" class="flex-1 py-3 text-sm font-bold text-emerald-600 border-b-2 border-emerald-600 transition">
+          Log In
+        </button>
+        <button id="auth-tab-register" onclick="switchAuthTab('register')" class="flex-1 py-3 text-sm font-bold text-slate-400 hover:text-slate-600 transition">
+          Create Account
+        </button>
+      </div>
+
+      <form id="form-login" onsubmit="handleLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Email or Mobile Number</label>
+          <input type="text" id="login-identifier" required placeholder="nabeel.naqeeb@example.com" value="nabeel.naqeeb@example.com"
+            class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:border-emerald-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Password</label>
+          <input type="password" required placeholder="••••••••" value="password123"
+            class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:border-emerald-500 outline-none">
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-500">
+          <label class="flex items-center space-x-1.5">
+            <input type="checkbox" checked class="rounded text-emerald-600">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="text-emerald-600 font-semibold hover:underline">Forgot?</a>
+        </div>
+        <button type="submit" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-xl shadow-md transition">
+          Log In &rarr;
+        </button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="form-register" onsubmit="handleRegister(event)" class="hidden space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Full Legal Name</label>
+          <input type="text" id="reg-name" required placeholder="e.g. Nabeel Naqeeb"
+            class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:border-emerald-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address</label>
+          <input type="email" id="reg-email" required placeholder="nabeel@example.com"
+            class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:border-emerald-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Tanzania or Turkey Phone Number</label>
+          <input type="tel" id="reg-phone" required placeholder="+255 774 XXX XXX or +90 534 XXX XX XX"
+            class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:border-emerald-500 outline-none">
+        </div>
+        <button type="submit" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-xl shadow-md transition">
+          Create Account &rarr;
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- USER DASHBOARD MODAL (SECURITY & 2FA, OPERATOR KYC) -->
+  <div id="dashboard-modal" class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100 my-auto max-h-[92vh] overflow-y-auto custom-scrollbar">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between border-b border-slate-100 pb-5 mb-5">
+        <div class="flex items-center space-x-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 font-extrabold flex items-center justify-center text-lg">
+            <span id="dash-avatar">NN</span>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-slate-900" id="dash-username">Nabeel Naqeeb</h3>
+            <div class="flex items-center space-x-2 text-xs text-slate-500">
+              <span id="dash-email">nabeel.naqeeb@example.com</span>
+              <span>&bull;</span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
+                KYC Level 2 Verified
+              </span>
+            </div>
+          </div>
+        </div>
+        <button onclick="closeDashboardModal()" class="text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-100">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Dashboard Navigation Tabs -->
+      <div class="flex border-b border-slate-200 mb-6 text-sm overflow-x-auto custom-scrollbar">
+        <button id="dash-tab-security" onclick="switchDashboardTab('security')" class="py-2.5 px-4 font-bold text-emerald-600 border-b-2 border-emerald-600 transition flex items-center gap-1.5 whitespace-nowrap">
+          <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+          <span>Security &amp; 2FA Protection</span>
+          <span id="dash-2fa-pill" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Active</span>
+        </button>
+        <button id="dash-tab-kyc" onclick="switchDashboardTab('kyc')" class="py-2.5 px-4 font-bold text-slate-500 hover:text-slate-800 transition flex items-center gap-1.5 whitespace-nowrap">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+          <span>Operator Profile &amp; Corridor Authorization</span>
+        </button>
+      </div>
+
+      <!-- TAB: SECURITY & TWO-FACTOR AUTHENTICATION VIEW -->
+      <div id="dash-view-security" class="space-y-6">
+        <!-- Status Banner -->
+        <div class="p-5 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-emerald-50 border-emerald-200" id="dash-2fa-banner">
+          <div class="flex items-start space-x-3.5">
+            <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-emerald-600/20">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h4 class="text-base font-extrabold text-slate-900" id="dash-2fa-headline">Two-Factor Authentication (2FA) is Active</h4>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-200 text-emerald-900" id="dash-2fa-status-badge">PROTECTED</span>
+              </div>
+              <p class="text-xs text-slate-600 mt-1" id="dash-2fa-subtext">
+                Your remittances and sensitive account actions are shielded with Time-based One-Time Passwords (TOTP) and SMS verification.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-2 shrink-0">
+            <button onclick="openTwoFactorSetup()" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-md transition">
+              Configure 2FA &rarr;
+            </button>
+            <button id="btn-toggle-2fa-disable" onclick="openDisableTwoFactorModal()" class="px-3 py-2 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 text-xs font-semibold transition">
+              Disable
+            </button>
+          </div>
+        </div>
+
+        <!-- 2FA Details & Backup Codes Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <!-- Authenticator App Card -->
+          <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+              <span class="font-bold text-slate-900 flex items-center gap-1.5">
+                <span>📱</span> Primary Method: Authenticator App
+              </span>
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[10px]">Enabled</span>
+            </div>
+            <p class="text-slate-600 leading-relaxed">
+              Linked to Google Authenticator / Authy on your verified mobile device. Generates a new 6-digit code every 30 seconds.
+            </p>
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 font-mono text-[11px] flex justify-between items-center">
+              <span class="text-slate-500">Secret Key:</span>
+              <span class="font-bold text-slate-800">JBSW Y3DP EHPK 3PXP</span>
+              <button onclick="copyTwoFactorSecret()" class="text-emerald-600 font-semibold hover:underline text-[10px]">Copy</button>
+            </div>
+          </div>
+
+          <!-- Emergency Recovery Codes Card -->
+          <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+              <span class="font-bold text-slate-900 flex items-center gap-1.5">
+                <span>🔑</span> Emergency Backup Codes
+              </span>
+              <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold text-[10px]" id="dash-backup-count-badge">8 Remaining</span>
+            </div>
+            <p class="text-slate-600 leading-relaxed">
+              One-time emergency codes used to regain access if you lose your mobile device or authenticator app.
+            </p>
+            <div class="flex space-x-2 pt-1">
+              <button onclick="openBackupCodesModal()" class="flex-1 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-xs transition text-center">
+                View Backup Codes &rarr;
+              </button>
+              <button onclick="downloadBackupCodes()" class="px-3 py-2 border border-slate-200 hover:bg-slate-50 text-slate-600 font-semibold rounded-xl text-xs transition" title="Download .txt">
+                💾 Download
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compliance & Security Policy Info -->
+        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs space-y-2">
+          <h5 class="font-bold text-slate-900 flex items-center gap-1.5">
+            <span class="text-emerald-600">🛡️</span> Regulatory &amp; Corridor Security Compliance (MASAK &amp; BOT)
+          </h5>
+          <p class="text-slate-600 leading-relaxed">
+            In compliance with Turkish Financial Crimes Investigation Board (<strong>MASAK</strong>) standards and the <strong>Bank of Tanzania (BOT)</strong> foreign exchange guidelines, cross-border remittances above 250,000 TZS require real-time two-factor cryptographic confirmation before Turkish IBAN or cash desk clearing.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-1 text-[11px]">
+            <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700 font-medium">✓ Brute Force Rate Limiting</span>
+            <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700 font-medium">✓ End-to-End Encrypted Sessions</span>
+            <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700 font-medium">✓ PTT UETS Notification Linked</span>
+          </div>
+        </div>
+
+        <!-- Security Activity Audit Trail -->
+        <div class="space-y-3">
+          <h5 class="text-xs font-bold uppercase tracking-wider text-slate-500">Recent Security Activity Log</h5>
+          <div class="border border-slate-200 rounded-2xl overflow-hidden">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-100 text-slate-700 text-[11px] font-bold">
+                <tr>
+                  <th class="py-2.5 px-4">Timestamp</th>
+                  <th class="py-2.5 px-4">Security Event</th>
+                  <th class="py-2.5 px-4">Location &amp; IP</th>
+                  <th class="py-2.5 px-4">Device</th>
+                  <th class="py-2.5 px-4 text-right">Status</th>
+                </tr>
+              </thead>
+              <tbody id="security-logs-tbody" class="divide-y divide-slate-200">
+                <!-- Populated dynamically via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: KYC & OPERATOR PROFILE VIEW -->
+      <div id="dash-view-kyc" class="hidden space-y-5 text-xs text-slate-700">
+        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+          <div class="flex justify-between items-center pb-2 border-b border-slate-200">
+            <span class="font-bold text-slate-900 text-sm">Regulatory Profile &amp; Corridor Authorization</span>
+            <span class="px-2.5 py-0.5 rounded-full font-bold bg-emerald-100 text-emerald-800 text-[10px]">Active &amp; In Good Standing</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <span class="text-slate-400 block">Operator Full Name:</span>
+              <strong class="text-slate-900">Nabeel Naqeeb</strong>
+            </div>
+            <div>
+              <span class="text-slate-400 block">Corridor Focus:</span>
+              <strong class="text-slate-900">Tanzania (Dar es Salaam / Zanzibar) &rarr; Turkey (Istanbul)</strong>
+            </div>
+            <div>
+              <span class="text-slate-400 block">Customs Protocol:</span>
+              <strong class="text-slate-900">Official 4% Turkish Import Duty &amp; Cross-Border Clearing</strong>
+            </div>
+            <div>
+              <span class="text-slate-400 block">Turkish Banking Rails:</span>
+              <strong class="text-slate-900">VakıfBank (Pendik Branch) &amp; Ziraat Bankası FAST 24/7</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- SEND MONEY STEP-BY-STEP WIZARD MODAL -->
+  <!-- 5 STEPS INCLUDING CRITICAL STEP 4: UPFRONT FEE BREAKDOWN BEFORE CONFIRMATION -->
+  <!-- ========================================================================= -->
+  <div id="send-modal" class="fixed inset-0 z-50 hidden bg-slate-900/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100 my-auto max-h-[92vh] overflow-y-auto custom-scrollbar">
+      <button onclick="closeSendModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1.5 rounded-full hover:bg-slate-100">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <!-- Stepper indicator (5 Steps) -->
+      <div class="mb-6">
+        <div class="flex items-center justify-between text-[11px] font-bold text-slate-400 mb-2 gap-1 overflow-x-auto">
+          <span id="step-lbl-1" class="text-emerald-600 whitespace-nowrap">1. Amount &amp; Currency</span>
+          <span id="step-lbl-2" class="whitespace-nowrap">2. Recipient</span>
+          <span id="step-lbl-3" class="whitespace-nowrap">3. Payment</span>
+          <span id="step-lbl-4" class="text-amber-700 font-extrabold whitespace-nowrap">4. Upfront Fee Breakdown</span>
+          <span id="step-lbl-5" class="whitespace-nowrap">5. Receipt</span>
+        </div>
+        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+          <div id="step-progress-bar" class="bg-emerald-500 h-full w-1/5 transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- Step 1: Transfer Amount & Currency -->
+      <div id="wizard-step-1" class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-bold text-slate-900">Step 1: Transfer Amount &amp; Currency</h3>
+          <span class="text-xs text-emerald-600 font-semibold">Corridor: Tanzania &rarr; Turkey</span>
+        </div>
+
+        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3 text-xs">
+          <div class="flex justify-between items-center text-slate-600">
+            <span>Amount Sent from Tanzania:</span>
+            <span id="wiz-send-amt" class="font-bold text-slate-900 font-mono text-sm">500,000 TZS</span>
+          </div>
+          <div class="flex justify-between items-center text-slate-600">
+            <span>Guaranteed Exchange Rate (0% spread):</span>
+            <span id="wiz-rate" class="font-bold text-slate-800 font-mono">1 TZS = 0.0183125 TRY</span>
+          </div>
+          <div class="flex justify-between items-center bg-amber-50 p-2.5 rounded-xl border border-amber-200 text-amber-900">
+            <div>
+              <span class="font-bold">4% Customs Clearance Charge:</span>
+              <div class="text-[10px] text-amber-700">Official Turkish border tax declaration</div>
+            </div>
+            <span id="wiz-customs-amt" class="font-mono font-bold text-sm text-amber-900">+ 20,000 TZS</span>
+          </div>
+
+          
+
+          <div class="flex justify-between items-center pt-2 border-t border-slate-200 font-bold text-emerald-800 bg-emerald-50/50 p-2.5 rounded-xl">
+            <span>Recipient Receives in Turkey:</span>
+            <span id="wiz-recv-amt" class="font-mono text-base font-extrabold text-emerald-700">9,156.25 TRY</span>
+          </div>
+        </div>
+
+        <div class="flex justify-end pt-3">
+          <button onclick="goToWizardStep(2)" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-xl shadow-md transition">
+            Continue to Recipient Details &rarr;
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Recipient Details -->
+      <div id="wizard-step-2" class="hidden space-y-4">
+        <h3 class="text-lg font-bold text-slate-900">Step 2: Turkish Recipient Details</h3>
+        <div class="space-y-3 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Recipient Full Legal Name (As in Turkish Kimlik / Passport)</label>
+            <input type="text" id="wiz-recip-name" required placeholder="e.g. Yusuf Al-Mazroui" value="Yusuf Al-Mazroui"
+              class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:border-emerald-500 outline-none">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Recipient Turkish Phone Number</label>
+            <input type="tel" id="wiz-recip-phone" required placeholder="+90 5XX XXX XX XX" value="+90 534 892 1102"
+              class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:border-emerald-500 outline-none">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Turkish Bank &amp; IBAN Number</label>
+            <div class="space-y-2">
+              <select id="wiz-recip-bank" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:border-emerald-500 outline-none font-medium">
+                <option value="VakıfBank">Türkiye Vakıflar Bankası (VakıfBank) - Recommended FAST</option>
+                <option value="Ziraat Bankası">T.C. Ziraat Bankası</option>
+                <option value="İş Bankası">Türkiye İş Bankası</option>
+                <option value="Garanti BBVA">Garanti BBVA</option>
+                <option value="QNB Finansbank">QNB Finansbank</option>
+                <option value="Cash Pickup Istanbul">Cash Pickup - Istanbul (Pendik / Fatih Hub)</option>
+              </select>
+              <input type="text" id="wiz-recip-iban" required placeholder="TRXX XXXX XXXX XXXX XXXX XXXX XX" value="TR62 0001 5001 5800 7301 2345 67"
+                class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:border-emerald-500 outline-none font-mono">
+            </div>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Transfer Purpose (Mandatory for Turkish Customs Declaration)</label>
+            <select id="wiz-recip-reason" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:border-emerald-500 outline-none">
+              <option value="Family Support / Living Expenses">Family Support &amp; Living Expenses</option>
+              <option value="Student Tuition &amp; Educational Fees">University Tuition / Student Fees</option>
+              <option value="Commercial Trade / Goods Consignment">Commercial Trade / Goods Consignment</option>
+              <option value="Medical &amp; Travel Expenses">Medical &amp; Travel Expenses</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex justify-between pt-3">
+          <button onclick="goToWizardStep(1)" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition">
+            &larr; Back
+          </button>
+          <button onclick="goToWizardStep(3)" class="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-xl shadow-md transition">
+            Payment Method &rarr;
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Payment Method in Tanzania -->
+      <div id="wizard-step-3" class="hidden space-y-4">
+        <h3 class="text-lg font-bold text-slate-900">Step 3: Select Payment Method in Tanzania</h3>
+        <p class="text-xs text-slate-500">Select your local Tanzania funding method:</p>
+
+        <div class="space-y-2.5 text-xs">
+          <label class="flex items-center space-x-3 p-3.5 rounded-2xl border border-emerald-500 bg-emerald-50/50 cursor-pointer">
+            <input type="radio" name="wiz_pay_method" value="mpesa" checked class="text-emerald-600 focus:ring-emerald-500">
+            <div class="flex-1">
+              <div class="font-bold text-slate-900 flex items-center justify-between">
+                <span>Vodacom M-Pesa (Instant STK Push Prompt)</span>
+                <span class="text-emerald-700 font-semibold text-[11px]">Instant &bull; 0% Fee</span>
+              </div>
+              <p class="text-slate-500 text-[11px]">Enter your Tanzania phone to receive automatic PIN prompt.</p>
+            </div>
+          </label>
+
+          <label class="flex items-center space-x-3 p-3.5 rounded-2xl border border-slate-200 hover:border-slate-300 cursor-pointer">
+            <input type="radio" name="wiz_pay_method" value="tigo" class="text-emerald-600 focus:ring-emerald-500">
+            <div class="flex-1">
+              <div class="font-bold text-slate-900">Tigo Pesa</div>
+              <p class="text-slate-500 text-[11px]">Paybill: <strong>894210</strong> &bull; Reference: generated order ID</p>
+            </div>
+          </label>
+
+          <label class="flex items-center space-x-3 p-3.5 rounded-2xl border border-slate-200 hover:border-slate-300 cursor-pointer">
+            <input type="radio" name="wiz_pay_method" value="airtel" class="text-emerald-600 focus:ring-emerald-500">
+            <div class="flex-1">
+              <div class="font-bold text-slate-900">Airtel Money</div>
+              <p class="text-slate-500 text-[11px]">Business Number: <strong>552200</strong></p>
+            </div>
+          </label>
+
+          <label class="flex items-center space-x-3 p-3.5 rounded-2xl border border-slate-200 hover:border-slate-300 cursor-pointer">
+            <input type="radio" name="wiz_pay_method" value="bank" class="text-emerald-600 focus:ring-emerald-500">
+            <div class="flex-1">
+              <div class="font-bold text-slate-900">CRDB / NMB Bank Deposit</div>
+              <p class="text-slate-500 text-[11px]">Local bank wire within Tanzania.</p>
+            </div>
+          </label>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Your Tanzania Mobile Number (For M-Pesa Prompt &amp; SMS Receipt)</label>
+          <input type="tel" id="wiz-sender-phone" placeholder="+255 77X XXX XXX" value="+255 774 200 119"
+            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:border-emerald-500 outline-none">
+        </div>
+
+        <div class="flex justify-between pt-3">
+          <button onclick="goToWizardStep(2)" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition">
+            &larr; Back
+          </button>
+          <!-- Advances to Step 4: Upfront Fee Breakdown BEFORE confirmation! -->
+          <button onclick="goToWizardStep(4)" class="px-6 py-2.5 bg-amber-600 hover:bg-amber-500 text-white font-bold text-sm rounded-xl shadow-md transition flex items-center gap-1.5">
+            <span>Review Upfront Fee Breakdown &rarr;</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- CRITICAL STEP 4: UPFRONT BREAKDOWN OF ALL FEES BEFORE TRANSACTION CONFIRMATION -->
+      <!-- ================================================================= -->
+      <div id="wizard-step-4" class="hidden space-y-5">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+          <div>
+            <h3 class="text-xl font-extrabold text-slate-900 flex items-center gap-2">
+              <span class="text-amber-600">🛡️</span> Step 4: Upfront Fee Breakdown &amp; Final Review
+            </h3>
+            <p class="text-xs text-slate-500 mt-0.5">Transparent Itemization — What you see is exactly what is debited. Zero hidden charges.</p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-300">
+            Pre-Confirmation Audit
+          </span>
+        </div>
+
+        <!-- Recipient & Routing Overview Box -->
+        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-xs grid grid-cols-2 gap-3">
+          <div>
+            <span class="text-slate-400 block text-[10px] uppercase font-semibold">Recipient in Turkey</span>
+            <strong class="text-slate-900 font-bold text-sm" id="rev-recip-name">Yusuf Al-Mazroui</strong>
+            <div class="text-slate-500 font-mono text-[11px]" id="rev-recip-bank-iban">VakıfBank &bull; TR62 0001 5001...</div>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[10px] uppercase font-semibold">Payment &amp; Delivery Rail</span>
+            <strong class="text-emerald-700 font-bold" id="rev-pay-method">Vodacom M-Pesa (+255 774...)</strong>
+            <div class="text-slate-500 text-[11px]">Instant FAST Transfer (&lt; 30 mins)</div>
+          </div>
+        </div>
+
+        <!-- Detailed Itemized Fee Breakdown Table -->
+        <div class="bg-white rounded-2xl border-2 border-slate-200 overflow-hidden shadow-sm">
+          <div class="bg-slate-900 text-white px-4 py-2.5 flex justify-between items-center text-xs font-bold">
+            <span>Itemized Financial Breakdown</span>
+            <span class="text-emerald-300 text-[11px]">Locked Exchange Rate Applied</span>
+          </div>
+
+          <table class="w-full text-left text-xs">
+            <tbody class="divide-y divide-slate-200/80">
+              <tr class="bg-slate-50/50">
+                <td class="py-2.5 px-4 font-semibold text-slate-700">1. Principal Transfer Amount:</td>
+                <td class="py-2.5 px-4 text-right font-mono font-bold text-slate-900" id="rev-principal-amt">500,000 TZS</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-semibold text-slate-700">
+                  <div class="flex items-center gap-1">
+                    <span>2. Platform Remittance Fee:</span>
+                    <span class="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.2 rounded font-bold">Promo Waived</span>
+                  </div>
+                </td>
+                <td class="py-2.5 px-4 text-right font-mono font-bold text-emerald-700" id="rev-platform-fee">0 TZS</td>
+              </tr>
+              <tr class="bg-amber-50/70">
+                <td class="py-2.5 px-4 font-semibold text-amber-950">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-4 h-4 rounded-full bg-amber-200 text-amber-800 font-bold flex items-center justify-center text-[10px]">!</span>
+                    <div>
+                      <span class="font-bold">3. Official 4% Customs Clearance Fee:</span>
+                      <div class="text-[10px] text-amber-800 font-normal">Mandatory Turkish border declaration &amp; stamp tax</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-2.5 px-4 text-right font-mono font-bold text-amber-900 text-sm" id="rev-customs-fee">+ 20,000 TZS</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-semibold text-slate-700">4. Tanzania Mobile Money Rail Fee:</td>
+                <td class="py-2.5 px-4 text-right font-mono font-bold text-emerald-700">0 TZS (Free / Covered)</td>
+              </tr>
+
+              <tr class="bg-slate-100/80 border-t-2 border-slate-300">
+                <td class="py-3 px-4 font-bold text-slate-900 text-sm">
+                  TOTAL AMOUNT DEBITED UPFRONT:
+                  <span class="block text-[10px] text-slate-500 font-normal">Final guaranteed debit from your funding source</span>
+                </td>
+                <td class="py-3 px-4 text-right font-mono font-extrabold text-base text-slate-950" id="rev-total-pay">510,000 TZS</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-semibold text-slate-700">Live Exchange Rate (Locked 15 min, 0% margin):</td>
+                <td class="py-2.5 px-4 text-right font-mono font-bold text-slate-800" id="rev-fx-rate">1 TZS = 0.0183125 TRY</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-semibold text-slate-700">Turkish Destination Bank Receiving Fee:</td>
+                <td class="py-2.5 px-4 text-right font-mono font-bold text-emerald-700">0.00 TRY (FAST Free)</td>
+              </tr>
+              <tr class="bg-emerald-100/80 border-t border-emerald-300">
+                <td class="py-3.5 px-4 font-extrabold text-emerald-950 text-sm">
+                  GUARANTEED RECIPIENT PAYOUT:
+                  <span class="block text-[10px] text-emerald-800 font-normal">Exact amount credited directly to Turkish IBAN / Cash Desk</span>
+                </td>
+                <td class="py-3.5 px-4 text-right font-mono font-black text-xl text-emerald-900" id="rev-recv-amt">9,156.25 TRY</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+                <!-- 2FA Transfer Dispatch Authorization Box -->
+        <div id="step4-2fa-auth-box" class="p-4 bg-emerald-50 rounded-2xl border border-emerald-300 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="p-1 rounded-lg bg-emerald-600 text-white">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+              </span>
+              <div>
+                <strong class="text-xs font-bold text-emerald-950 block">2FA Transfer Dispatch Authorization</strong>
+                <span class="text-[10px] text-emerald-800">MASAK Regulatory Security Compliance</span>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-200 text-emerald-900 border border-emerald-300">2FA Active</span>
+          </div>
+          <p class="text-[11px] text-emerald-800 leading-tight">Enter the 6-digit verification code from your authenticator app to authorize this cross-border remittance.</p>
+          <div class="flex items-center space-x-2 pt-1">
+            <input type="text" id="step4-2fa-input" maxlength="6" placeholder="123456" value="123456"
+              class="flex-1 px-3 py-2.5 bg-white border-2 border-emerald-300 rounded-xl text-base font-mono font-extrabold text-center tracking-[0.2em] text-slate-900 outline-none focus:border-emerald-500 shadow-inner">
+            <button type="button" onclick="document.getElementById('step4-2fa-input').value='123456'; showToast('Demo 2FA code filled');"
+              class="px-3.5 py-2.5 bg-emerald-200 hover:bg-emerald-300 text-emerald-900 text-xs font-bold rounded-xl transition shrink-0">
+              ⚡ Demo (123456)
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mandatory User Confirmation Checkbox -->
+        <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-xs">
+          <label class="flex items-start space-x-2.5 cursor-pointer">
+            <input type="checkbox" id="confirm-fee-audit" checked class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500">
+            <span class="text-slate-700 leading-snug">
+              I have reviewed the <strong>upfront fee breakdown</strong> above and confirm that all amounts, the <strong>4% customs clearance fee</strong>, and Turkish recipient details are correct. I authorize Nabeel Naqeeb Remit to execute this transaction.
+            </span>
+          </label>
+        </div>
+
+        <div class="flex justify-between items-center pt-2">
+          <button onclick="goToWizardStep(3)" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition">
+            &larr; Back to Payment Method
+          </button>
+          <button onclick="executeTransferOrder()" class="px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-sm rounded-xl shadow-lg shadow-emerald-600/30 transition flex items-center gap-2">
+            <span>Confirm &amp; Authorize Payment</span>
+            <span class="font-mono text-xs bg-emerald-700/60 px-2 py-0.5 rounded text-emerald-100" id="confirm-btn-amt">510,000 TZS</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 5: Success Receipt -->
+      <div id="wizard-step-5" class="hidden space-y-4 text-center">
+        <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto text-3xl font-extrabold">
+          ✓
+        </div>
+        <h3 class="text-2xl font-bold text-slate-900">Transfer Initiated Successfully!</h3>
+        <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-bold my-1">
+          <span>🛡️</span>
+          <span>2FA Cryptographic Authorization Verified (MASAK &amp; BOT Protocol)</span>
+        </div>
+        <p class="text-xs text-slate-600 max-w-md mx-auto">
+          Your remittance has been registered and verified with Nabeel Naqeeb Remit's corridor gateway. The official 4% customs clearance has been declared.
+        </p>
+
+
+
+        <!-- Receipt Box with Full Fee Breakdown -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-left text-xs space-y-2 max-w-lg mx-auto">
+          <div class="flex justify-between items-center pb-2 border-b border-slate-200">
+            <span class="text-slate-500">Order Reference Number:</span>
+            <span id="rec-order-id" class="font-mono font-bold text-slate-900 text-sm">NQ-TZTR-92815</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Recipient Name:</span>
+            <span id="rec-recipient-name" class="font-semibold text-slate-800">Yusuf Al-Mazroui</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Destination Bank / IBAN:</span>
+            <span id="rec-recipient-bank" class="font-mono text-slate-800">VakıfBank (TR62 0001...)</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Customs Certificate No:</span>
+            <span id="rec-customs-cert" class="font-mono font-semibold text-slate-700">TR-CUSTOMS-2026-92815</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Principal Sent:</span>
+            <span id="rec-sent-amt" class="font-mono font-bold">500,000 TZS</span>
+          </div>
+          <div class="flex justify-between text-amber-800 font-semibold">
+            <span>4% Customs Clearance Fee:</span>
+            <span id="rec-customs-fee" class="font-mono">+ 20,000 TZS</span>
+          </div>
+
+          <div class="flex justify-between pt-2 border-t border-slate-200 font-bold text-slate-900">
+            <span>Total Debited:</span>
+            <span id="rec-total-pay" class="font-mono">510,000 TZS</span>
+          </div>
+          <div class="flex justify-between bg-emerald-100/70 p-2.5 rounded-xl text-emerald-900 font-bold">
+            <span>Guaranteed Recipient Payout:</span>
+            <span id="rec-recv-amt" class="font-mono text-sm font-extrabold text-emerald-800">9,156.25 TRY</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-3 pt-2 max-w-lg mx-auto">
+          <button onclick="printReceipt()" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition">
+            Print / Save Receipt
+          </button>
+          <button onclick="trackThisOrder(document.getElementById('rec-order-id').innerText);" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+            <span>Track This Remittance</span>
+          </button>
+          <button onclick="resetAndNewTransfer()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl shadow-md transition">
+            New Transfer
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 pointer-events-none flex flex-col gap-2"></div>
+
+  <!-- JAVASCRIPT APP LOGIC -->
+  <script>
+    // Exchange Rates
+    const RATES = {
+      TZS_TRY: 0.0183125,
+      TZS_USD: 0.000378,
+      USD_TRY: 48.43,
+      USD_TZS: 2645.0,
+      TRY_TZS: 54.61
+    };
+
+        let appState = {
+      user: {
+        isLoggedIn: true,
+        name: "Nabeel Naqeeb",
+        email: "nabeel.naqeeb@example.com",
+        phone: "+90 534 000 0000",
+        kycLevel: 2,
+        avatar: "NN",
+        twoFactorEnabled: true,
+        twoFactorSecret: "JBSWY3DPEHPK3PXP",
+        twoFactorMethod: "authenticator",
+        backupCodes: ["A7B2-9F1C", "D4E8-2K9L", "M5N3-8P7Q", "R1T6-4V2W", "X9Y3-7Z1A", "B8C4-6D2E", "F3G7-1H9J", "K2L6-8M4N"],
+        securityLogs: [
+          { date: "2026-09-03 23:18", event: "Login with 2FA", ip: "176.240.88.12", location: "Istanbul, TR", device: "Chrome / macOS", status: "Success" },
+          { date: "2026-09-03 21:40", event: "Transfer Authorized (2FA)", ip: "176.240.88.12", location: "Istanbul, TR", device: "Chrome / macOS", status: "Verified" },
+          { date: "2026-09-01 14:15", event: "Login with 2FA", ip: "197.250.44.89", location: "Dar es Salaam, TZ", device: "Mobile Safari / iOS", status: "Success" },
+          { date: "2026-08-28 09:30", event: "2FA Security Activated", ip: "176.240.88.12", location: "Istanbul, TR", device: "Chrome / macOS", status: "Configured" },
+          { date: "2026-08-20 18:05", event: "KYC Level 2 Approval", ip: "Internal Clearing", location: "Operator Desk", device: "PTT UETS Gateway", status: "Verified" }
+        ]
+      },
+      speed: "fast", // 'fast' | 'standard'
+      customsRate: 0.04, // 4% customs charge
+      serviceFeeFlat: 0, // Promo launch
+      transfers: [
+        {
+          id: "NQ-TZTR-89421",
+          date: "2026-09-02",
+          recipient: "Yusuf Al-Mazroui",
+          bank: "VakıfBank",
+          iban: "TR62 0001 5001 5800 7301 2345 67",
+          sendAmt: 500000,
+          sendCurr: "TZS",
+          customsFee: 20000,
+          totalPay: 520000,
+          recvAmt: 9156.25,
+          recvCurr: "TRY",
+          status: "Paid Out (FAST)"
+        }
+      ]
+    };
+
+    // Show Notification Toast
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `px-4 py-2.5 rounded-xl shadow-lg text-xs font-bold text-white transition-all transform duration-300 translate-y-2 pointer-events-auto ${type === 'success' ? 'bg-slate-900 border border-emerald-500' : 'bg-rose-900 border border-rose-500'}`;
+      toast.innerHTML = `<div class="flex items-center gap-2"><span>${type === 'success' ? '✓' : 'ℹ'}</span><span>${message}</span></div>`;
+      container.appendChild(toast);
+      setTimeout(() => { toast.classList.remove('translate-y-2'); }, 10);
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    // Calculate Transfer with Complete Upfront Itemization
+    function calculateTransfer() {
+      const sendAmtInput = document.getElementById('send-amount');
+      const sendCurr = document.getElementById('send-currency').value;
+      const recvCurr = document.getElementById('receive-currency').value;
+      const receiveAmtInput = document.getElementById('receive-amount');
+      const displayRate = document.getElementById('display-rate');
+      const displayCustoms = document.getElementById('display-customs-fee');
+      const displayService = document.getElementById('display-service-fee');
+      const displayTotalPay = document.getElementById('display-total-pay');
+
+      let sendAmt = parseFloat(sendAmtInput.value) || 0;
+
+      // Rate calculation
+      let rate = 1;
+      if (sendCurr === 'TZS' && recvCurr === 'TRY') {
+        rate = RATES.TZS_TRY;
+      } else if (sendCurr === 'TZS' && recvCurr === 'USD') {
+        rate = RATES.TZS_USD;
+      } else if (sendCurr === 'USD' && recvCurr === 'TRY') {
+        rate = RATES.USD_TRY;
+      } else if (sendCurr === 'USD' && recvCurr === 'USD') {
+        rate = 1;
+      }
+
+      displayRate.innerText = `1 ${sendCurr} = ${rate.toFixed(6)} ${recvCurr}`;
+
+      // 4% customs calculation
+      const customsFee = sendAmt * appState.customsRate;
+      const serviceFee = appState.serviceFeeFlat;
+      const totalPay = sendAmt + customsFee + serviceFee;
+      const netRecv = sendAmt * rate;
+
+      displayCustoms.innerText = `+ ${customsFee.toLocaleString('en-US', {maximumFractionDigits: 2})} ${sendCurr}`;
+      displayService.innerText = `${serviceFee} ${sendCurr} (Launch Promo)`;
+      displayTotalPay.innerText = `${totalPay.toLocaleString('en-US', {maximumFractionDigits: 2})} ${sendCurr}`;
+      receiveAmtInput.value = `${netRecv.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${recvCurr}`;
+    }
+
+    function setSpeed(speed) {
+      appState.speed = speed;
+      const btnFast = document.getElementById('speed-fast');
+      const btnStd = document.getElementById('speed-standard');
+      const lbl = document.getElementById('delivery-speed-label');
+
+      if (speed === 'fast') {
+        btnFast.className = "px-3 py-1.5 rounded-lg bg-white text-emerald-700 shadow-sm transition font-semibold";
+        btnStd.className = "px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition font-semibold";
+        lbl.innerText = "Estimated: ~20 mins via FAST";
+      } else {
+        btnStd.className = "px-3 py-1.5 rounded-lg bg-white text-emerald-700 shadow-sm transition font-semibold";
+        btnFast.className = "px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition font-semibold";
+        lbl.innerText = "Estimated: 2 to 4 hours via Standard Batch";
+      }
+    }
+
+    function updatePayoutMethod(method) {
+      const labels = document.querySelectorAll('.payout-option');
+      labels.forEach(l => {
+        const input = l.querySelector('input');
+        if (input.checked) {
+          l.classList.add('border-emerald-500', 'bg-emerald-50/50');
+          l.classList.remove('border-slate-200');
+        } else {
+          l.classList.remove('border-emerald-500', 'bg-emerald-50/50');
+          l.classList.add('border-slate-200');
+        }
+      });
+    }
+
+        // Dashboard Modal & Tabs (Focused on Security & Profile)
+    function openDashboardModal(initialTab = 'security') {
+      document.getElementById('dashboard-modal').classList.remove('hidden');
+      renderDashboard();
+      switchDashboardTab(initialTab);
+    }
+
+    function closeDashboardModal() {
+      document.getElementById('dashboard-modal').classList.add('hidden');
+    }
+
+    function switchDashboardTab(tab) {
+      const tabs = ['security', 'kyc'];
+      tabs.forEach(t => {
+        const tabBtn = document.getElementById(`dash-tab-${t}`);
+        const viewDiv = document.getElementById(`dash-view-${t}`);
+        if (!tabBtn || !viewDiv) return;
+        if (t === tab) {
+          tabBtn.className = "py-2.5 px-4 font-bold text-emerald-600 border-b-2 border-emerald-600 transition flex items-center gap-1.5 whitespace-nowrap";
+          viewDiv.classList.remove('hidden');
+        } else {
+          tabBtn.className = "py-2.5 px-4 font-bold text-slate-500 hover:text-slate-800 transition flex items-center gap-1.5 whitespace-nowrap";
+          viewDiv.classList.add('hidden');
+        }
+      });
+      if (tab === 'security') {
+        renderSecurityLogs();
+      }
+    }
+
+    function renderDashboard() {
+      document.getElementById('dash-username').innerText = appState.user.name;
+      document.getElementById('dash-email').innerText = appState.user.email;
+      const initials = appState.user.name.split(' ').map(n=>n[0]).join('').substring(0,2).toUpperCase();
+      document.getElementById('dash-avatar').innerText = initials || 'NN';
+
+      
+
+      // Render 2FA Status in Dashboard
+      const is2fa = appState.user.twoFactorEnabled;
+      const statusPill = document.getElementById('dash-2fa-pill');
+      const statusBadge = document.getElementById('dash-2fa-status-badge');
+      const headline = document.getElementById('dash-2fa-headline');
+      const subtext = document.getElementById('dash-2fa-subtext');
+      const banner = document.getElementById('dash-2fa-banner');
+      const disableBtn = document.getElementById('btn-toggle-2fa-disable');
+      const backupBadge = document.getElementById('dash-backup-count-badge');
+      const step4AuthBox = document.getElementById('step4-2fa-auth-box');
+
+      if (backupBadge) {
+        backupBadge.innerText = `${appState.user.backupCodes.length} Remaining`;
+      }
+
+      if (is2fa) {
+        if (statusPill) {
+          statusPill.innerText = "Active";
+          statusPill.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300";
+        }
+        if (statusBadge) {
+          statusBadge.innerText = "PROTECTED";
+          statusBadge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-200 text-emerald-900";
+        }
+        if (headline) headline.innerText = "Two-Factor Authentication (2FA) is Active";
+        if (subtext) subtext.innerText = "Your remittances and sensitive account actions are shielded with Time-based One-Time Passwords (TOTP) and SMS verification.";
+        if (banner) banner.className = "p-5 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-emerald-50 border-emerald-200";
+        if (disableBtn) disableBtn.classList.remove('hidden');
+        if (step4AuthBox) step4AuthBox.classList.remove('hidden');
+      } else {
+        if (statusPill) {
+          statusPill.innerText = "Off";
+          statusPill.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-200 text-slate-700 border border-slate-300";
+        }
+        if (statusBadge) {
+          statusBadge.innerText = "INACTIVE";
+          statusBadge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-200 text-amber-900";
+        }
+        if (headline) headline.innerText = "Two-Factor Authentication is Disabled";
+        if (subtext) subtext.innerText = "We strongly recommend activating 2FA to safeguard cross-border transfers to Turkey against unauthorized access.";
+        if (banner) banner.className = "p-5 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-amber-50 border-amber-200";
+        if (disableBtn) disableBtn.classList.add('hidden');
+        if (step4AuthBox) step4AuthBox.classList.add('hidden');
+      }
+
+      renderSecurityLogs();
+    }
+
+    
+
+    // Send Money Wizard Flow with 5 Steps
+    function startSendFlow() {
+      if (!appState.user.isLoggedIn) {
+        openAuthModal('login');
+        return;
+      }
+      
+      const sendAmt = parseFloat(document.getElementById('send-amount').value) || 500000;
+      const sendCurr = document.getElementById('send-currency').value;
+      const recvCurr = document.getElementById('receive-currency').value;
+      const customsFee = sendAmt * appState.customsRate;
+
+      let rate = sendCurr === 'TZS' && recvCurr === 'TRY' ? RATES.TZS_TRY : RATES.TZS_USD;
+      if (sendCurr === 'USD') rate = RATES.USD_TRY;
+      const recvAmt = sendAmt * rate;
+
+      document.getElementById('wiz-send-amt').innerText = `${sendAmt.toLocaleString()} ${sendCurr}`;
+      document.getElementById('wiz-customs-amt').innerText = `+ ${customsFee.toLocaleString()} ${sendCurr} (4%)`;
+      document.getElementById('wiz-rate').innerText = `1 ${sendCurr} = ${rate.toFixed(6)} ${recvCurr}`;
+      document.getElementById('wiz-recv-amt').innerText = `${recvAmt.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${recvCurr}`;
+
+      goToWizardStep(1);
+      document.getElementById('send-modal').classList.remove('hidden');
+    }
+
+    function closeSendModal() {
+      document.getElementById('send-modal').classList.add('hidden');
+    }
+
+    function goToWizardStep(step) {
+      for (let i = 1; i <= 5; i++) {
+        const stepDiv = document.getElementById(`wizard-step-${i}`);
+        const stepLbl = document.getElementById(`step-lbl-${i}`);
+        if (stepDiv) stepDiv.classList.add('hidden');
+        if (stepLbl) {
+          if (i === step) {
+            stepLbl.className = "text-emerald-600 font-bold whitespace-nowrap";
+          } else if (i < step) {
+            stepLbl.className = "text-slate-700 font-semibold whitespace-nowrap";
+          } else {
+            stepLbl.className = "text-slate-400 font-normal whitespace-nowrap";
+          }
+        }
+      }
+
+      // If entering Step 4: Populate the UPFRONT FEE BREAKDOWN BEFORE CONFIRMATION
+      if (step === 4) {
+        populateStep4Review();
+      }
+
+      document.getElementById(`wizard-step-${step}`).classList.remove('hidden');
+      const bar = document.getElementById('step-progress-bar');
+      bar.style.width = (step * 20) + '%';
+    }
+
+    // Populate Step 4: Upfront Fee Breakdown & Final Review
+    function populateStep4Review() {
+      const recipientName = document.getElementById('wiz-recip-name').value || "Yusuf Al-Mazroui";
+      const bank = document.getElementById('wiz-recip-bank').value;
+      const iban = document.getElementById('wiz-recip-iban').value || "TR62 0001 5001 5800 7301 2345 67";
+      const senderPhone = document.getElementById('wiz-sender-phone').value || "+255 774 200 119";
+      
+      const sendAmt = parseFloat(document.getElementById('send-amount').value) || 500000;
+      const sendCurr = document.getElementById('send-currency').value;
+      const recvCurr = document.getElementById('receive-currency').value;
+      const customsFee = sendAmt * appState.customsRate;
+      
+      const totalPay = sendAmt + customsFee;
+
+      let rate = sendCurr === 'TZS' && recvCurr === 'TRY' ? RATES.TZS_TRY : RATES.TZS_USD;
+      if (sendCurr === 'USD') rate = RATES.USD_TRY;
+      const recvAmt = sendAmt * rate;
+
+      // Update Step 4 elements
+      document.getElementById('rev-recip-name').innerText = recipientName;
+      document.getElementById('rev-recip-bank-iban').innerText = `${bank} • ${iban.substring(0, 18)}...`;
+      document.getElementById('rev-pay-method').innerText = `M-Pesa (${senderPhone})`;
+
+      document.getElementById('rev-principal-amt').innerText = `${sendAmt.toLocaleString()} ${sendCurr}`;
+      document.getElementById('rev-platform-fee').innerText = `0 ${sendCurr} (Launch Promo)`;
+      document.getElementById('rev-customs-fee').innerText = `+ ${customsFee.toLocaleString()} ${sendCurr}`;
+
+      document.getElementById('rev-total-pay').innerText = `${totalPay.toLocaleString()} ${sendCurr}`;
+      document.getElementById('rev-fx-rate').innerText = `1 ${sendCurr} = ${rate.toFixed(6)} ${recvCurr}`;
+      document.getElementById('rev-recv-amt').innerText = `${recvAmt.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${recvCurr}`;
+      document.getElementById('confirm-btn-amt').innerText = `${totalPay.toLocaleString()} ${sendCurr}`;
+    }
+
+    // Execute Transfer Order (Triggered ONLY after Step 4 review)
+    function executeTransferOrder() {
+      const checkbox = document.getElementById('confirm-fee-audit');
+      if (checkbox && !checkbox.checked) {
+        showToast("Please check the box confirming you have reviewed the upfront fee breakdown.", "error");
+        return;
+      }
+
+      const recipientName = document.getElementById('wiz-recip-name').value || "Yusuf Al-Mazroui";
+      const bank = document.getElementById('wiz-recip-bank').value;
+      const iban = document.getElementById('wiz-recip-iban').value;
+      const sendAmt = parseFloat(document.getElementById('send-amount').value) || 500000;
+      const sendCurr = document.getElementById('send-currency').value;
+      const recvCurr = document.getElementById('receive-currency').value;
+      const customsFee = sendAmt * appState.customsRate;
+      
+      const totalPay = sendAmt + customsFee;
+
+      let rate = sendCurr === 'TZS' && recvCurr === 'TRY' ? RATES.TZS_TRY : RATES.TZS_USD;
+      if (sendCurr === 'USD') rate = RATES.USD_TRY;
+      const recvAmt = sendAmt * rate;
+
+      // Verify 2FA code if 2FA is active
+      if (appState.user.twoFactorEnabled) {
+        const twoFaInput = document.getElementById('step4-2fa-input');
+        const twoFaCode = twoFaInput ? twoFaInput.value.trim() : "";
+        if (!twoFaCode || (twoFaCode !== "123456" && twoFaCode.length < 6)) {
+          showToast("Please enter a valid 6-digit 2FA authorization code before sending.", "error");
+          return;
+        }
+        addSecurityLog("TRANSFER_2FA_VERIFIED", `Transfer dispatch authorized with 2FA`);
+      }
+
+      const randomSuffix = Math.floor(10000 + Math.random() * 90000);
+      const randomRef = 'NQ-TZTR-' + randomSuffix;
+      const customsCert = 'TR-CUSTOMS-2026-' + randomSuffix;
+
+      const newOrder = {
+        id: randomRef,
+        date: new Date().toISOString().split('T')[0],
+        recipient: recipientName,
+        bank: bank,
+        iban: iban,
+        sendAmt: sendAmt,
+        sendCurr: sendCurr,
+        customsFee: customsFee,
+        totalPay: totalPay,
+        recvAmt: recvAmt,
+        recvCurr: recvCurr,
+        status: "Processing (Customs Declared)"
+      };
+
+      appState.transfers.unshift(newOrder);
+
+      // Populate Receipt in Step 5
+      document.getElementById('rec-order-id').innerText = randomRef;
+      document.getElementById('rec-recipient-name').innerText = recipientName;
+      document.getElementById('rec-recipient-bank').innerText = `${bank} (${iban.substring(0, 14)}...)`;
+      document.getElementById('rec-customs-cert').innerText = customsCert;
+      document.getElementById('rec-sent-amt').innerText = `${sendAmt.toLocaleString()} ${sendCurr}`;
+      document.getElementById('rec-customs-fee').innerText = `+ ${customsFee.toLocaleString()} ${sendCurr} (4%)`;
+      document.getElementById('rec-total-pay').innerText = `${totalPay.toLocaleString()} ${sendCurr}`;
+      document.getElementById('rec-recv-amt').innerText = `${recvAmt.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${recvCurr}`;
+
+      // Update Dashboard Metrics
+      renderDashboard();
+
+      goToWizardStep(5);
+      showToast("Transfer confirmed and customs declared successfully!");
+    }
+
+        function trackThisOrder(orderId) {
+      closeSendModal();
+      const trackInput = document.getElementById('track-input');
+      if (trackInput) {
+        trackInput.value = orderId;
+        trackTransfer();
+      }
+      const trackSection = document.getElementById('track-section');
+      if (trackSection) {
+        trackSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function resetAndNewTransfer() {
+      goToWizardStep(1);
+      startSendFlow();
+    }
+
+    function printReceipt() {
+      window.print();
+    }
+
+    // Tracking
+    function trackTransfer() {
+      const code = document.getElementById('track-input').value.trim();
+      const resultDiv = document.getElementById('tracker-result');
+      if (!code) {
+        showToast("Please enter a tracking reference.", "error");
+        return;
+      }
+
+      const match = appState.transfers.find(t => t.id.toLowerCase() === code.toLowerCase()) || {
+        id: code,
+        recipient: "Yusuf Al-Mazroui",
+        bank: "VakıfBank (FAST)",
+        sendAmt: 500000,
+        sendCurr: "TZS",
+        customsFee: 20000,
+        recvAmt: 9156.25,
+        recvCurr: "TRY",
+        status: "Paid Out (FAST)"
+      };
+
+      document.getElementById('tr-code').innerText = match.id;
+      document.getElementById('tr-recipient').innerText = `Recipient: ${match.recipient} (${match.bank})`;
+      document.getElementById('tr-amount').innerText = `${match.sendAmt.toLocaleString()} ${match.sendCurr} → ${match.recvAmt.toLocaleString()} ${match.recvCurr}`;
+      document.getElementById('tr-badge').innerText = match.status.toUpperCase();
+
+      resultDiv.classList.remove('hidden');
+      resultDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Authentication Functions
+    function openAuthModal(tab) {
+      document.getElementById('auth-modal').classList.remove('hidden');
+      switchAuthTab(tab || 'login');
+    }
+
+    function closeAuthModal() {
+      document.getElementById('auth-modal').classList.add('hidden');
+    }
+
+    function switchAuthTab(tab) {
+      const tabLogin = document.getElementById('auth-tab-login');
+      const tabReg = document.getElementById('auth-tab-register');
+      const formLogin = document.getElementById('form-login');
+      const formReg = document.getElementById('form-register');
+
+      if (tab === 'login') {
+        tabLogin.className = "flex-1 py-3 text-sm font-bold text-emerald-600 border-b-2 border-emerald-600 transition";
+        tabReg.className = "flex-1 py-3 text-sm font-bold text-slate-400 hover:text-slate-600 transition";
+        formLogin.classList.remove('hidden');
+        formReg.classList.add('hidden');
+      } else {
+        tabReg.className = "flex-1 py-3 text-sm font-bold text-emerald-600 border-b-2 border-emerald-600 transition";
+        tabLogin.className = "flex-1 py-3 text-sm font-bold text-slate-400 hover:text-slate-600 transition";
+        formReg.classList.remove('hidden');
+        formLogin.classList.add('hidden');
+      }
+    }
+
+    // ==========================================
+    // THEME & DARK MODE CONTROLLER
+    // ==========================================
+    function initTheme() {
+      const savedTheme = (localStorage.getItem('nabeel_naqeeb_remit_theme') || localStorage.getItem('naqeeb_theme'));
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+        appState.darkMode = true;
+      } else {
+        document.documentElement.classList.remove('dark');
+        appState.darkMode = false;
+      }
+      updateThemeUI();
+    }
+
+    function toggleDarkMode() {
+      appState.darkMode = !appState.darkMode;
+      if (appState.darkMode) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('nabeel_naqeeb_remit_theme', 'dark'); localStorage.setItem('naqeeb_theme', 'dark');
+        showToast("Dark theme activated 🌙");
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('nabeel_naqeeb_remit_theme', 'light'); localStorage.setItem('naqeeb_theme', 'light');
+        showToast("Light theme activated ☀️");
+      }
+      updateThemeUI();
+    }
+
+    function updateThemeUI() {
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+      const mobIcon = document.getElementById('mobile-theme-icon');
+      const mobText = document.getElementById('mobile-theme-text');
+
+      if (appState.darkMode) {
+        if (sunIcon) sunIcon.classList.remove('hidden');
+        if (moonIcon) moonIcon.classList.add('hidden');
+        if (mobIcon) mobIcon.innerText = "☀️";
+        if (mobText) mobText.innerText = "Light Mode";
+      } else {
+        if (sunIcon) sunIcon.classList.add('hidden');
+        if (moonIcon) moonIcon.classList.remove('hidden');
+        if (mobIcon) mobIcon.innerText = "🌙";
+        if (mobText) mobText.innerText = "Dark Mode";
+      }
+    }
+
+    // ==========================================
+    // TWO-FACTOR AUTHENTICATION & SECURITY LOGIC
+    // ==========================================
+    function handleLogin(e) {
+      e.preventDefault();
+      const id = document.getElementById('login-identifier').value || "Nabeel Naqeeb";
+      
+      if (appState.user.twoFactorEnabled) {
+        showTwoFactorLoginChallenge(id);
+      } else {
+        completeLogin(id);
+      }
+    }
+
+    function showTwoFactorLoginChallenge(id) {
+      document.getElementById('auth-tab-buttons').classList.add('hidden');
+      document.getElementById('form-login').classList.add('hidden');
+      document.getElementById('form-register').classList.add('hidden');
+      document.getElementById('auth-2fa-challenge').classList.remove('hidden');
+      document.getElementById('auth-2fa-identifier-display').innerText = id;
+      const inp = document.getElementById('login-2fa-input');
+      inp.value = '';
+      setTimeout(() => inp.focus(), 100);
+      showToast("Two-Factor Authentication required.", "info");
+    }
+
+    function cancelTwoFactorLogin() {
+      document.getElementById('auth-2fa-challenge').classList.add('hidden');
+      document.getElementById('auth-tab-buttons').classList.remove('hidden');
+      document.getElementById('form-login').classList.remove('hidden');
+    }
+
+    function quickFillDemo2FA() {
+      document.getElementById('login-2fa-input').value = "123456";
+      showToast("Demo verification code 123456 entered");
+    }
+
+    function useBackupCodeLoginPrompt() {
+      const code = prompt("Enter an 8-character emergency backup recovery code (e.g. A7B2-9F1C):");
+      if (!code) return;
+      document.getElementById('login-2fa-input').value = code.trim().toUpperCase();
+      verifyTwoFactorLogin();
+    }
+
+    function verifyTwoFactorLogin(e) {
+      if (e) e.preventDefault();
+      const rawCode = document.getElementById('login-2fa-input').value.trim();
+      if (!rawCode) {
+        showToast("Please enter the 6-digit 2FA code.", "error");
+        return;
+      }
+
+      // Check backup code
+      if (rawCode.includes('-')) {
+        const clean = rawCode.toUpperCase();
+        const idx = appState.user.backupCodes.indexOf(clean);
+        if (idx !== -1) {
+          appState.user.backupCodes.splice(idx, 1);
+          addSecurityLog("LOGIN_BACKUP_CODE_USED", `Emergency backup code consumed (${appState.user.backupCodes.length} remaining)`);
+          showToast("Backup code verified successfully!", "success");
+          completeLogin(document.getElementById('login-identifier').value);
+          return;
+        } else {
+          showToast("Invalid backup recovery code.", "error");
+          return;
+        }
+      }
+
+      // Verify 6-digit TOTP
+      if (rawCode === "123456" || rawCode.length === 6) {
+        addSecurityLog("LOGIN_SUCCESS_2FA", "TOTP 2FA code verified");
+        showToast("Two-Factor Authentication verified!", "success");
+        completeLogin(document.getElementById('login-identifier').value);
+      } else {
+        showToast("Invalid verification code. Enter 123456 for demo.", "error");
+      }
+    }
+
+    function completeLogin(id) {
+      appState.user.isLoggedIn = true;
+      appState.user.name = id.includes('@') ? id.split('@')[0] : id;
+      closeAuthModal();
+      cancelTwoFactorLogin();
+      updateUserUI();
+      renderDashboard();
+      openDashboardModal('security');
+      showToast(`Welcome back, ${appState.user.name}!`);
+    }
+
+    function addSecurityLog(eventType, details = "") {
+      const now = new Date();
+      const dateStr = now.toISOString().replace('T', ' ').substring(0, 16);
+      appState.user.securityLogs.unshift({
+        date: dateStr,
+        event: eventType,
+        ip: "176.240.88.12",
+        location: "Istanbul, TR",
+        device: "Chrome / macOS",
+        status: "Success"
+      });
+      if (appState.user.securityLogs.length > 15) {
+        appState.user.securityLogs.pop();
+      }
+    }
+
+    function renderSecurityLogs() {
+      const tbody = document.getElementById('security-logs-tbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+      appState.user.securityLogs.forEach(l => {
+        const row = document.createElement('tr');
+        row.className = "hover:bg-slate-50/80 transition text-xs";
+        row.innerHTML = `
+          <td class="py-2.5 px-4 font-mono text-slate-500">${l.date}</td>
+          <td class="py-2.5 px-4 font-semibold text-slate-800">
+            <span class="inline-flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              ${l.event}
+            </span>
+          </td>
+          <td class="py-2.5 px-4 text-slate-600">${l.location} <span class="font-mono text-[10px] text-slate-400">(${l.ip})</span></td>
+          <td class="py-2.5 px-4 text-slate-500">${l.device}</td>
+          <td class="py-2.5 px-4 text-right">
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
+              ${l.status}
+            </span>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    // 2FA Setup Flow Functions
+    function openTwoFactorSetup() {
+      document.getElementById('twofactor-setup-modal').classList.remove('hidden');
+      document.getElementById('setup-2fa-input').value = '';
+    }
+
+    function closeTwoFactorSetup() {
+      document.getElementById('twofactor-setup-modal').classList.add('hidden');
+    }
+
+    function confirmTwoFactorSetup() {
+      const code = document.getElementById('setup-2fa-input').value.trim();
+      if (!code || (code !== "123456" && code.length < 6)) {
+        showToast("Please enter the 6-digit confirmation code (or use Demo 123456).", "error");
+        return;
+      }
+      appState.user.twoFactorEnabled = true;
+      addSecurityLog("2FA_ENABLED", "Two-factor authentication configured and activated");
+      closeTwoFactorSetup();
+      renderDashboard();
+      showToast("Two-Factor Authentication is now ACTIVE!", "success");
+      openBackupCodesModal();
+    }
+
+    function copyTwoFactorSecret() {
+      navigator.clipboard.writeText("JBSWY3DPEHPK3PXP").then(() => {
+        showToast("Secret key copied to clipboard! (JBSWY3DPEHPK3PXP)");
+      });
+    }
+
+    // Backup Codes Functions
+    function openBackupCodesModal() {
+      const grid = document.getElementById('backup-codes-grid');
+      if (grid) {
+        grid.innerHTML = '';
+        appState.user.backupCodes.forEach(code => {
+          const item = document.createElement('div');
+          item.className = "p-2 bg-white rounded-xl border border-slate-200 shadow-sm";
+          item.innerText = code;
+          grid.appendChild(item);
+        });
+      }
+      document.getElementById('twofactor-backup-modal').classList.remove('hidden');
+    }
+
+    function closeBackupCodesModal() {
+      document.getElementById('twofactor-backup-modal').classList.add('hidden');
+    }
+
+    function copyBackupCodes() {
+      const text = appState.user.backupCodes.join('\n');
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("All backup recovery codes copied to clipboard!");
+      });
+    }
+
+    function downloadBackupCodes() {
+      const text = "Nabeel Naqeeb Remit - Emergency 2FA Backup Recovery Codes\n" +
+        "Account: " + appState.user.email + "\n" +
+        "Generated: " + new Date().toISOString() + "\n\n" +
+        appState.user.backupCodes.map((c, i) => `${i+1}. ${c}`).join('\n') + "\n\n" +
+        "Keep these codes in a secure, confidential place. Each code is one-time use.";
+      const blob = new Blob([text], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = "nabeel-naqeeb-remit-2fa-backup-codes.txt";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast("Backup codes file downloaded!");
+    }
+
+    // Disable 2FA Flow
+    function openDisableTwoFactorModal() {
+      document.getElementById('twofactor-disable-modal').classList.remove('hidden');
+    }
+
+    function closeDisableTwoFactorModal() {
+      document.getElementById('twofactor-disable-modal').classList.add('hidden');
+    }
+
+    function confirmDisableTwoFactor() {
+      appState.user.twoFactorEnabled = false;
+      addSecurityLog("2FA_DISABLED", "Two-factor authentication deactivated");
+      closeDisableTwoFactorModal();
+      renderDashboard();
+      showToast("Two-Factor Authentication has been disabled.", "info");
+    }
+
+    function handleRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      appState.user.isLoggedIn = true;
+      appState.user.name = name;
+      appState.user.email = email;
+      closeAuthModal();
+      updateUserUI();
+      openDashboardModal('security');
+      showToast(`Account created! Welcome to Nabeel Naqeeb Remit, ${name}.`);
+    }
+
+    function logoutUser() {
+      appState.user.isLoggedIn = false;
+      updateUserUI();
+      showToast("You have been logged out.");
+    }
+
+    function updateUserUI() {
+      const guestDiv = document.getElementById('nav-guest-actions');
+      const userDiv = document.getElementById('nav-user-profile');
+      const navName = document.getElementById('nav-user-name');
+      const navAvatar = document.getElementById('nav-user-avatar');
+
+      if (appState.user.isLoggedIn) {
+        guestDiv.classList.add('hidden');
+        userDiv.classList.remove('hidden');
+        navName.innerText = appState.user.name;
+        const initials = appState.user.name.split(' ').map(n=>n[0]).join('').substring(0,2).toUpperCase();
+        navAvatar.innerText = initials || 'NN';
+      } else {
+        guestDiv.classList.remove('hidden');
+        userDiv.classList.add('hidden');
+      }
+    }
+
+    function toggleMobileMenu() {
+      const m = document.getElementById('mobile-menu');
+      m.classList.toggle('hidden');
+    }
+
+    // Initial setup on load
+    window.addEventListener('DOMContentLoaded', () => {
+      calculateTransfer();
+      updateUserUI();
+      
+    });
+  </script>
+  <!-- TWO-FACTOR AUTHENTICATION SETUP WIZARD MODAL -->
+  <div id="twofactor-setup-modal" class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100 my-auto max-h-[92vh] overflow-y-auto custom-scrollbar">
+      <button onclick="closeTwoFactorSetup()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1.5 rounded-full hover:bg-slate-100">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <div class="text-center space-y-2 mb-5">
+        <div class="w-12 h-12 mx-auto rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center shadow-md">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+        </div>
+        <h3 class="text-xl font-extrabold text-slate-900">Set Up Two-Factor Authentication</h3>
+        <p class="text-xs text-slate-500">Enhance your remittance account security in 3 simple steps</p>
+      </div>
+
+      <div class="space-y-5 text-xs">
+        <!-- Step 1: QR Code & Key -->
+        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-center space-y-3">
+          <span class="font-bold text-slate-800 block text-sm">Step 1: Scan QR Code in Authenticator</span>
+          <div class="mx-auto w-44 h-44 bg-white p-3 rounded-2xl border border-slate-300 flex items-center justify-center shadow-inner">
+            <!-- Vector QR Code representation -->
+            <svg class="w-full h-full text-slate-900" viewBox="0 0 100 100" fill="currentColor">
+              <rect x="5" y="5" width="28" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="4"/>
+              <rect x="13" y="13" width="12" height="12" fill="currentColor"/>
+              <rect x="67" y="5" width="28" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="4"/>
+              <rect x="75" y="13" width="12" height="12" fill="currentColor"/>
+              <rect x="5" y="67" width="28" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="4"/>
+              <rect x="13" y="75" width="12" height="12" fill="currentColor"/>
+              <!-- Grid pixels -->
+              <rect x="42" y="8" width="6" height="6"/>
+              <rect x="52" y="14" width="6" height="6"/>
+              <rect x="42" y="24" width="6" height="6"/>
+              <rect x="10" y="42" width="6" height="6"/>
+              <rect x="22" y="42" width="6" height="6"/>
+              <rect x="32" y="42" width="6" height="6"/>
+              <rect x="45" y="42" width="10" height="10" fill="#10b981"/>
+              <rect x="62" y="42" width="6" height="6"/>
+              <rect x="74" y="42" width="6" height="6"/>
+              <rect x="86" y="42" width="6" height="6"/>
+              <rect x="42" y="60" width="6" height="6"/>
+              <rect x="52" y="68" width="6" height="6"/>
+              <rect x="42" y="78" width="6" height="6"/>
+              <rect x="68" y="68" width="8" height="8"/>
+              <rect x="82" y="68" width="8" height="8"/>
+              <rect x="68" y="82" width="8" height="8"/>
+              <rect x="82" y="82" width="8" height="8"/>
+            </svg>
+          </div>
+          <div>
+            <span class="text-[11px] text-slate-500 block">Or enter this code manually into your app:</span>
+            <div class="inline-flex items-center space-x-2 mt-1 px-3 py-1.5 bg-white rounded-xl border border-slate-200 font-mono font-bold text-slate-800 text-xs">
+              <span id="setup-secret-display">JBSW Y3DP EHPK 3PXP</span>
+              <button onclick="copyTwoFactorSecret()" class="text-emerald-600 hover:text-emerald-700 font-bold ml-1">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Verification Input -->
+        <div class="space-y-3">
+          <span class="font-bold text-slate-800 block text-sm">Step 2: Enter 6-digit confirmation code</span>
+          <div class="flex gap-2">
+            <input type="text" id="setup-2fa-input" maxlength="6" placeholder="123456"
+              class="flex-1 py-2.5 px-4 bg-slate-50 border border-slate-300 rounded-xl text-center font-mono font-bold text-lg tracking-widest outline-none focus:border-emerald-500">
+            <button onclick="document.getElementById('setup-2fa-input').value='123456'" type="button"
+              class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs transition shrink-0">
+              Demo 123456
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: Action Buttons -->
+        <div class="pt-2 flex items-center space-x-3">
+          <button onclick="confirmTwoFactorSetup()" class="flex-1 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm rounded-xl shadow-md transition">
+            Confirm &amp; Activate 2FA &rarr;
+          </button>
+          <button onclick="closeTwoFactorSetup()" class="px-4 py-3 border border-slate-200 text-slate-600 font-semibold rounded-xl hover:bg-slate-100 transition">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACKUP RECOVERY CODES MODAL -->
+  <div id="twofactor-backup-modal" class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100 my-auto">
+      <button onclick="closeBackupCodesModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1.5 rounded-full hover:bg-slate-100">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <div class="text-center space-y-1 mb-5">
+        <span class="text-3xl">🔑</span>
+        <h3 class="text-xl font-extrabold text-slate-900">Emergency Recovery Codes</h3>
+        <p class="text-xs text-slate-500">Each code can be used once to access your account if you lose your phone</p>
+      </div>
+
+      <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 mb-5">
+        <div id="backup-codes-grid" class="grid grid-cols-2 gap-2.5 font-mono text-xs font-bold text-slate-800 text-center">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="flex space-x-2 text-xs">
+        <button onclick="copyBackupCodes()" class="flex-1 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow transition">
+          📋 Copy All Codes
+        </button>
+        <button onclick="downloadBackupCodes()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl transition">
+          💾 Download .txt
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISABLE 2FA CONFIRMATION MODAL -->
+  <div id="twofactor-disable-modal" class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-sm w-full p-6 shadow-2xl relative border border-slate-100 text-center space-y-4">
+      <div class="w-12 h-12 mx-auto rounded-full bg-rose-100 text-rose-600 flex items-center justify-center">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold text-slate-900">Disable Two-Factor Authentication?</h4>
+        <p class="text-xs text-slate-500 mt-1">Disabling 2FA reduces your account security. Are you sure you want to proceed?</p>
+      </div>
+      <div class="flex space-x-2 pt-2">
+        <button onclick="confirmDisableTwoFactor()" class="flex-1 py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs rounded-xl transition">
+          Yes, Disable 2FA
+        </button>
+        <button onclick="closeDisableTwoFactorModal()" class="flex-1 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition">
+          Keep Enabled
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+    // Initialize Theme & Security on load
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      renderDashboard();
+    });
 
 </body>
 </html>
+
